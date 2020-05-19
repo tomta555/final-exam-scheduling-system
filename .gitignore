@@ -17,4 +17,5 @@
 *.toc
 *.xdv
 *.synctex.gz
+*.synctex(busy)
 __latexindent*
