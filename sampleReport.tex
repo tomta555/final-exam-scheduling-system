@@ -1,0 +1,157 @@
+\documentclass[semifinal]{cpecmu}
+
+% This is a sample document demonstrating how to use the CPECMU
+% project template. If you are having trouble, see "cpecmu.pdf" for
+% documentation.
+
+\projectNo{69}
+\acadyear{2020}
+
+\titleTH{โครงงานสุดเลิฟของฉัน}
+\titleEN{Your Project Name Goes Here}
+
+\author{นายกินรี ไทร์ล้ำเลิศ}{Kinnaree Tirelumlert}{690610696}
+\author{นายบรรจบ พบเอฟตลอด}{Banjob Pob-eftalord}{690610969}
+
+\cpeadvisor{chinawat}
+\cpecommittee{paskorn}%
+\committee{รศ.ดร.\,นิพนธ์ ธีรอำพน}{Assoc.\,Prof.\,Nipon Theera-Umpon, Ph.D.}
+
+% Some possible packages to include:
+\usepackage[final]{graphicx} % for including graphics
+
+% Add bookmarks and hyperlinks in the document.
+\usepackage[colorlinks=true,allcolors=Blue4,citecolor=red]{hyperref}
+
+% Needed just by this example, but maybe not by most reports
+\usepackage{afterpage} % for outputting
+\usepackage{pdflscape} % for landscape figures and tables. 
+
+% Some other useful packages. Look these up to find out how to use
+% them.
+% \usepackage{natbib}    % for author-year citation styles
+% \usepackage{txfonts}
+% \usepackage{appendix}  % for appendices on a per-chapter basis
+% \usepackage{xtab}      % for tables that go over multiple pages
+% \usepackage{subfigure} % for subfigures within a figure
+% \usepackage{pstricks,pdftricks} % for access to special PostScript and PDF commands
+% \usepackage{nomencl}   % if you have a list of abbreviations
+
+% if you're having problems with overfull boxes, you may need to increase
+% the tolerance to 9999
+% \tolerance=9999
+
+\bibliographystyle{plain}
+% \bibliographystyle{IEEEbib}
+
+% \renewcommand{\topfraction}{0.85}
+% \renewcommand{\textfraction}{0.1}
+% \renewcommand{\floatpagefraction}{0.75}
+
+% Example for glossary entry
+% Need to use glossary option
+% See glossaries package for complete documentation.
+\ifglossary
+  \newglossaryentry{lorem ipsum}{
+    name=lorem ipsum,
+    description={derived from Latin dolorem ipsum, translated as ``pain itself''}
+  }
+\fi
+
+\begin{document}
+\maketitle
+\makesignature
+
+\ifproject
+\begin{abstractTH}
+เขียนบทคัดย่อของโครงงานที่นี่
+
+การเขียนรายงานเป็นส่วนหนึ่งของการทำโครงงานวิศวกรรมคอมพิวเตอร์
+เพื่อทบทวนทฤษฎีที่เกี่ยวข้อง อธิบายขั้นตอนวิธีแก้ปัญหาเชิงวิศวกรรม และวิเคราะห์และสรุปผลการทดลองอุปกรณ์และระบบต่างๆ
+\enskip อย่างไรก็ดี การสร้างรูปเล่มรายงานให้ถูกรูปแบบนั้นเป็นขั้นตอนที่ยุ่งยาก
+แม้ว่าจะมีต้นแบบสำหรับใช้ในโปรแกรม Microsoft Word แล้วก็ตาม
+แต่นักศึกษาส่วนใหญ่ยังคงค้นพบว่าการใช้งานมีความซับซ้อน และเกิดความผิดพลาดในการจัดรูปแบบ กำหนดเลขหัวข้อ และสร้างสารบัญอยู่
+\enskip ภาควิชาวิศวกรรมคอมพิวเตอร์จึงได้จัดทำต้นแบบรูปเล่มรายงานโดยใช้ระบบจัดเตรียมเอกสาร
+\LaTeX{} เพื่อช่วยให้นักศึกษาเขียนรายงานได้อย่างสะดวกและรวดเร็วมากยิ่งขึ้น
+\end{abstractTH}
+
+\begin{abstract}
+The abstract would be placed here. It usually does not exceed 350 words
+long (not counting the heading), and must not take up more than one (1) page
+(even if fewer than 350 words long).
+
+Make sure your abstract sits inside the \texttt{abstract} environment.
+\end{abstract}
+
+\iffalse
+\begin{dedication}
+This document is dedicated to all Chiang Mai University students.
+
+Dedication page is optional.
+\end{dedication}
+\fi % \iffalse
+
+\begin{acknowledgments}
+Your acknowledgments go here. Make sure it sits inside the
+\texttt{acknowledgment} environment.
+
+\acksign{2020}{5}{25}
+\end{acknowledgments}%
+\fi % \ifproject
+
+\contentspage
+
+\ifproject
+\figurelistpage
+
+\tablelistpage
+\fi % \ifproject
+
+% \abbrlist % this page is optional
+
+% \symlist % this page is optional
+
+% \preface % this section is optional
+
+\pagestyle{empty}\cleardoublepage
+\normalspacing \setcounter{page}{1} \pagenumbering{arabic} \pagestyle{cpecmu}
+
+\input{chapters/intro}
+\input{chapters/background}
+\input{chapters/approach}
+\input{chapters/eval}
+\ifproject
+\input{chapters/conclusion}
+\fi
+
+\bibliography{sampleReport}
+
+\ifproject
+\appendix
+\chapter{The first appendix}
+
+Text for the first appendix goes here.
+
+\section{Appendix section}
+
+Text for a section in the first appendix goes here.
+
+\chapter{\ifcpe คู่มือการใช้งานระบบ\else Manual\fi}
+
+Manual goes here.
+
+% Display glossary (optional) -- need glossary option.
+\ifglossary\glossarypage\fi
+
+% Display index (optional) -- need idx option.
+\ifindex\indexpage\fi
+
+\begin{biosketch}
+\begin{center}
+  \includegraphics[width=1.5in]{mugshot.jpg}
+\end{center}
+Your biosketch goes here. Make sure it sits inside
+the \texttt{biosketch} environment.
+\end{biosketch}
+\fi % \ifproject
+\end{document}
