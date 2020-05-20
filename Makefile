@@ -32,4 +32,4 @@ clobber:
 	$(LATEXMK) -C $(DOC).tex
 
 $(DOC).pdf: dummy
-	$(LATEXMK) -pdfxe $(DOC).tex
+	$(LATEXMK) -pdfxe -synctex=1 $(DOC).tex

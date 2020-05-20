@@ -591,7 +591,7 @@
 \newcommand\acksign[3]{%
   \@printidfalse%
   \setcounter{@authorIdx}{0}%
-  \par\noindent%
+  \bigskip\par\noindent%
   \begin{tabularx}{\linewidth}{@{\hspace*{2.5in}}>{\centering}X@{}}
     \@listauthors{\ifcpe TH\else EN\fi}{\\}{}
     \Day{#1}{#2}{#3}
