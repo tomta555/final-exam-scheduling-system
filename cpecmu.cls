@@ -308,55 +308,10 @@
 }{%
   \normalspacing\clearpage
 }
-\newcommand\@cpefaculty[3]{%
+\newcommand\cpefaculty[3]{%
   \expandafter\gdef\csname @cpefacultyTH@#1\endcsname{#2}%
   \expandafter\gdef\csname @cpefacultyEN@#1\endcsname{#3}%
 }
-\@cpefaculty{anya}
-  {ผศ.ดร.\,อัญญา อาภาวัชรุตม์}{Asst.\,Prof.\,Anya Apavatjrut, Ph.D.}
-\@cpefaculty{arnan}
-  {อ.ดร.\,อานันท์ สีห์พิทักษ์เกียรติ}{Arnan Sipitakiat, Ph.D.}
-\@cpefaculty{chinawat}
-  {อ.ดร.\,ชินวัตร อิศราดิสัยกุล}{Chinawat Isradisaikul, Ph.D.}
-\@cpefaculty{dome}
-  {ผศ.\,โดม โพธิกานนท์}{Asst.\,Prof.\,Dome Potikanond}
-\@cpefaculty{juggapong}
-  {รศ.ดร.\,จักรพงศ์ นาทวิชัย}{Assoc.\,Prof.\,Juggapong Natwichai, Ph.D.}
-\@cpefaculty{kampol}
-  {ผศ.ดร.\,กำพล วรดิษฐ์}{Asst.\,Prof.\,Kampol Woradit, Ph.D.}
-\@cpefaculty{karn}
-  {ผศ.ดร.\,กานต์ ปทานุคม}{Asst.\,Prof.\,Karn Patanukhom, Ph.D.}
-\@cpefaculty{kasemsit}
-  {อ.ดร.\,เกษมสิทธิ์ ตียพันธ์}{Kasemsit Teeyapan, Ph.D.}
-\@cpefaculty{kenneth}
-  {ผศ.ดร.\,Kenneth Cosh}{Asst.\,Prof.\,Kenneth Cosh, Ph.D.}
-\@cpefaculty{lachana}
-  {ผศ.ดร.\,ลัชนา ระมิงค์วงศ์}{Asst.\,Prof.\,Lachana Ramingwong, Ph.D.}
-\@cpefaculty{narathip}
-  {ผศ.ดร.\,นราธิป เที่ยงแท้}{Asst.\,Prof.\,Narathip Tiangtae, Ph.D.}
-\@cpefaculty{narissara}
-  {รศ.ดร.\,นริศรา เอี่ยมคณิตชาติ}{Asst.\,Prof.\,Narissara Eiamkanitchat, Ph.D.}
-\@cpefaculty{navadon}
-  {อ.ดร.\,นวดนย์ คุณเลิศกิจ}{Navadon Khunlertgit, Ph.D.}
-\@cpefaculty{paskorn}
-  {ผศ.ดร.\,ภาสกร แช่มประเสริฐ}{Asst.\,Prof.\,Paskorn Champrasert, Ph.D.}
-\@cpefaculty{patiwet}
-  {ผศ.ดร.\,ปฏิเวธ วุฒิสารวัฒนา}{Asst.\,Prof.\,Patiwet Wuttisarnwattana, Ph.D.}
-\@cpefaculty{pruet}
-  {อ.ดร.\,พฤษภ์ บุญมา}{Pruet Boonma, Ph.D.}
-\@cpefaculty{sakgasit}
-  {รศ.ดร.\,ศักดิ์กษิต ระมิงค์วงศ์}{Assoc.\,Prof.\,Sakgasit Ramingwong, Ph.D.}
-\@cpefaculty{sanpawat}
-  {รศ.ดร.\,สรรพวรรธน์ กันตะบุตร}{Assoc.\,Prof.\,Sanpawat Kantabutra, Ph.D.}
-\@cpefaculty{sansanee}
-  {รศ.ดร.\,ศันสนีย์ เอื้อพันธ์วิริยะกุล}{Assoc.\,Prof.\,Sansanee Auephanwiriyakul, Ph.D.}
-\@cpefaculty{santi}
-  {รศ.ดร.\,สันติ พิทักษ์กิจนุกูร}{Assoc.\,Prof.\,Santi Phithakkitnukoon, Ph.D.}
-\@cpefaculty{trasapong}
-  {รศ.ดร.\,ตรัสพงศ์ ไทยอุปถัมภ์}{Assoc.\,Prof.\,Trasapong Thaiupathump, Ph.D.}
-\@cpefaculty{yuthapong}
-  {ผศ.ดร.\,ยุทธพงษ์ สมจิต}{Asst.\,Prof.\,Yuthapong Somchit, Ph.D.}
-
 \newcommand\deptChair[1]{
   \@ifundefined{@cpefacultyTH@#1}
   {\ClassWarningNoLine{cpecmu}{Unknown CPE faculty: #1}}{%
@@ -364,7 +319,7 @@
     \gdef\@deptChairEN{\csname @cpefacultyEN@#1\endcsname}%
   }
 }
-\deptChair{sakgasit}
+\RequirePackage{cpecmu-faculty}
 
 \newcommand{\@advisorTH}{(waiting for an advisor)}
 \newcommand{\@advisorEN}{(waiting for an advisor)}
@@ -719,13 +674,13 @@
   \@plan@numcols
   \tabularx{\linewidth}{|X|*{\the@plan@colscount}{c|}}
   \hline
-  \bf ขั้นตอนการดำเนินงาน
+  \bf\ifcpe ขั้นตอนการดำเนินงาน\else Task\fi
   \setcounter{@plan@m}{\value{@plan@sm}}
   \setcounter{@plan@y}{\value{@plan@sy}}
   \@plan@genheader
   \\\hline
 }{%
-    \endtabularx
+  \endtabularx
 }
 \newcommand\planitem[6][gray]{%
   \gdef\@plan@paint{%
