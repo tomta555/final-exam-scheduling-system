@@ -54,3 +54,15 @@ You can also use SyncTeX to navigate back and forth between
 source code and PDF output.  See 
   https://github.com/James-Yu/LaTeX-Workshop/wiki/View
 for details.
+
+This template and its related files, including the cpecmu document class,
+may be updated from time to time.  To update your own report repository
+with latest changes, first add the following remote into your repo:
+  git remote add template_remote git@github.com:cpecmu/cpe-project-ex.git
+Then, fetch and merge updates using these commands:
+  git fetch template_remote
+  git merge -s recursive -X theirs --no-commit --allow-unrelated-histories \
+    template_remote/master
+Note that this merge strategy will overwrite files that are present in the
+template reposotory; you should check for changes to your own files
+before committing.
