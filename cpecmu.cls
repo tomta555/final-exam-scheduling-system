@@ -71,8 +71,8 @@
   \let\iffinal\iftrue%
 }
 \DeclareOption{semifinal}{%
-  \let\ifdraft\iffalse%
-  \let\iffinal\iftrue%
+  \let\ifdraft\iftrue%
+  \let\iffinal\iffalse%
   \PassOptionsToClass{draft}{report}%
 }
 \newif\ifglossary\glossaryfalse
@@ -845,7 +845,6 @@
   \renewcommand{#1}{%
     \let\CS=\@currsize\renewcommand{\baselinestretch}{#2}\CS}%
 }
-\ifdraft\changespacing{\normalspacing}{1}\fi
 \newcommand{\changenormalspacing}[1]{\renewcommand{\normalspacing}{#1}}
 \normalspacing
 

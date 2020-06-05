@@ -64,5 +64,5 @@ Then, fetch and merge updates using these commands:
   git merge -s recursive -X theirs --no-commit --allow-unrelated-histories \
     template_remote/master
 Note that this merge strategy will overwrite files that are present in the
-template reposotory; you should check for changes to your own files
+template repository; you should check for changes to your own files
 before committing.
