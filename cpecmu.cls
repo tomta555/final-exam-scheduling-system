@@ -142,7 +142,7 @@
   \setlength\evensidemargin{0in}
   \setlength\textwidth{5.8in}
   \setlength\marginparsep{0.1in}
-  \setlength\marginparwidth{0.8in}
+  \setlength\marginparwidth{1.3in}
 \fi
 \newcommand{\ps@cpecmu}{%
 \def\@oddhead{}
