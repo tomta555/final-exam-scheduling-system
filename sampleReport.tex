@@ -1,0 +1,103 @@
+\documentclass[semifinal]{cpecmu}
+
+%% This is a sample document demonstrating how to use the CPECMU
+%% project template. If you are having trouble, see "cpecmu.pdf" for
+%% documentation.
+
+\projectNo{69}
+\acadyear{2020}
+
+\titleTH{โครงงานสุดเลิฟของฉัน}
+\titleEN{Your Project Name Goes Here}
+
+\author{นายกินรี ไทร์ล้ำเลิศ}{Kinnaree Tirelumlert}{690610696}
+\author{นายบรรจบ พบเอฟตลอด}{Banjob Pob-eftalord}{690610969}
+
+\cpeadvisor{chinawat}
+\cpecommittee{paskorn}
+\committee{รศ.ดร.\,นิพนธ์ ธีรอำพน}{Assoc.\,Prof.\,Nipon Theera-Umpon, Ph.D.}
+
+%% Some possible packages to include:
+\usepackage[final]{graphicx} % for including graphics
+
+%% Add bookmarks and hyperlinks in the document.
+\usepackage[colorlinks=true,allcolors=Blue4,citecolor=red,linktoc=all]{hyperref}
+
+%% Needed just by this example, but maybe not by most reports
+\usepackage{afterpage} % for outputting
+\usepackage{pdflscape} % for landscape figures and tables. 
+
+%% Some other useful packages. Look these up to find out how to use
+%% them.
+% \usepackage{natbib}    % for author-year citation styles
+% \usepackage{txfonts}
+% \usepackage{appendix}  % for appendices on a per-chapter basis
+% \usepackage{xtab}      % for tables that go over multiple pages
+% \usepackage{subfigure} % for subfigures within a figure
+% \usepackage{pstricks,pdftricks} % for access to special PostScript and PDF commands
+% \usepackage{nomencl}   % if you have a list of abbreviations
+
+%% if you're having problems with overfull boxes, you may need to increase
+%% the tolerance to 9999
+% \tolerance=9999
+
+\bibliographystyle{plain}
+% \bibliographystyle{IEEEbib}
+
+% \renewcommand{\topfraction}{0.85}
+% \renewcommand{\textfraction}{0.1}
+% \renewcommand{\floatpagefraction}{0.75}
+
+%% Example for glossary entry
+%% Need to use glossary option
+%% See glossaries package for complete documentation.
+\ifglossary
+  \newglossaryentry{lorem ipsum}{
+    name=lorem ipsum,
+    description={derived from Latin dolorem ipsum, translated as ``pain itself''}
+  }
+\fi
+
+%% Uncomment this command to preview only specified LaTeX file(s)
+%% imported with \include command below.
+%% Any other file imported via \include but not specified here will not
+%% be previewed.
+%% Useful if your report is large, as you might not want to build
+%% the entire file when editing a certain part of your report.
+% \includeonly{chapters/intro,chapters/background}
+
+\begin{document}
+\include{chapters/frontmatter}
+
+\pagestyle{empty}\cleardoublepage
+\normalspacing \setcounter{page}{1} \pagenumbering{arabic} \pagestyle{cpecmu}
+
+\include{chapters/intro}
+\include{chapters/background}
+\include{chapters/approach}
+\include{chapters/eval}
+\ifproject
+\include{chapters/conclusion}
+\fi
+
+\bibliography{sampleReport}
+
+\ifproject
+\appendix
+\include{chapters/appendix}
+
+%% Display glossary (optional) -- need glossary option.
+\ifglossary\glossarypage\fi
+
+%% Display index (optional) -- need idx option.
+\ifindex\indexpage\fi
+
+\begin{biosketch}
+\begin{center}
+  \includegraphics[width=1.5in]{mugshot.jpg}
+\end{center}
+Your biosketch goes here. Make sure it sits inside
+the \texttt{biosketch} environment.
+\end{biosketch}
+\fi % \ifproject
+\end{document}

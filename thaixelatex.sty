@@ -1,0 +1,102 @@
+\ProvidesPackage{thaixelatex}
+
+\DeclareOption{english}{\englishtrue}
+
+% Package options:
+%
+%   english: set English as primary language
+%
+\newif\ifenglish\englishfalse
+
+\ProcessOptions
+
+%% font setup
+\RequirePackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text}
+
+%% Thai language setup
+\XeTeXlinebreaklocale 'th_TH'
+\XeTeXlinebreakskip = 0pt plus 0.2pt minus 0.2pt
+
+\newfontfamily\thaifont[
+  Script=Thai,
+  Scale=MatchLowercase,
+  Extension=.otf,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+%   FakeBold=1.5,
+]{Laksaman}
+\newfontfamily\thaifonttt[
+%  Script=Thai,
+  Scale=MatchLowercase,
+  FakeBold=2,
+]{Arundina Sans Mono}
+\ifenglish
+  \setmainfont{TeX Gyre Termes}
+  \setmonofont[
+    Mapping=,
+    Scale=MatchLowercase,
+    Extension=.otf,
+    UprightFont=*zi4-Regular,
+    BoldFont=*zi4-Bold,
+    AutoFakeSlant
+  ]{Inconsolata}
+\else
+  \newfontfamily\engfont{TeX Gyre Termes}
+  \newfontfamily\engfonttt[
+    Mapping=,
+    Scale=MatchLowercase,
+    Extension=.otf,
+    UprightFont=*zi4-Regular,
+    BoldFont=*zi4-Bold,
+    AutoFakeSlant
+  ]{Inconsolata}
+\fi
+
+%% math setup
+\RequirePackage{amsmath}
+\RequirePackage{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+\setmathfontface\mathrm{TeX Gyre Termes}
+\setmathfontface\mathbf{TeX Gyre Termes Bold}
+\setmathfontface\mathit{TeX Gyre Termes Italic}
+
+\RequirePackage{ifthen}
+\ifenglish
+\newenvironment{thailang}{%
+\hyphenrules{thai}%
+\ifthenelse{\equal{\f@family}{\ttdefault}}{\thaifonttt}{\thaifont}%
+}
+{}
+\else
+\newenvironment{englang}{%
+\hyphenrules{english}%
+\ifthenelse{\equal{\f@family}{ArundinaSansMono(0)}}{\engfonttt}{\engfont}%
+}
+{}
+\fi
+
+\RequirePackage[Latin,Thai]{ucharclasses}
+\ifenglish
+  \setTransitionsFor{Thai}{\begin{thailang}}{\end{thailang}}
+\else
+  \setTransitionsForLatin{\begin{englang}}{\end{englang}}
+\fi
+
+\RequirePackage{polyglossia}
+\ifenglish
+  \setdefaultlanguage{english}
+  \setotherlanguage{thai}
+\else
+  \setdefaultlanguage{thai}
+  \setotherlanguage{english}
+  \frenchspacing
+\fi
+
+%% spacing
+\RequirePackage{setspace}
+\ifenglish
+\else
+\setstretch{1.35}
+\fi
