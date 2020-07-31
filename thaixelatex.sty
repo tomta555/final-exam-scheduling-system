@@ -65,13 +65,13 @@
 \RequirePackage{ifthen}
 \ifenglish
 \newenvironment{thailang}{%
-\hyphenrules{thai}%
+% \hyphenrules{thai}%
 \ifthenelse{\equal{\f@family}{\ttdefault}}{\thaifonttt}{\thaifont}%
 }
 {}
 \else
 \newenvironment{englang}{%
-\hyphenrules{english}%
+% \hyphenrules{english}%
 \ifthenelse{\equal{\f@family}{ArundinaSansMono(0)}}{\engfonttt}{\engfont}%
 }
 {}
