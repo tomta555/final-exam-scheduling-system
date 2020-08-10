@@ -43,8 +43,8 @@
     AutoFakeSlant
   ]{Inconsolata}
 \else
-  \newfontfamily\engfont{TeX Gyre Termes}
-  \newfontfamily\engfonttt[
+  \newfontfamily\englishfont{TeX Gyre Termes}
+  \newfontfamily\englishfonttt[
     Mapping=,
     Scale=MatchLowercase,
     Extension=.otf,
@@ -64,22 +64,17 @@
 
 \RequirePackage{ifthen}
 \ifenglish
-\newenvironment{thailang}{%
-% \hyphenrules{thai}%
-\ifthenelse{\equal{\f@family}{\ttdefault}}{\thaifonttt}{\thaifont}%
-}
-{}
 \else
 \newenvironment{englang}{%
-% \hyphenrules{english}%
-\ifthenelse{\equal{\f@family}{ArundinaSansMono(0)}}{\engfonttt}{\engfont}%
+\ifthenelse{\equal{\f@family}{ArundinaSansMono(0)}}{\textenglish\englishfonttt}{\textenglish}%
+\bgroup%
 }
-{}
+{\egroup}
 \fi
 
 \RequirePackage[Latin,Thai]{ucharclasses}
 \ifenglish
-  \setTransitionsFor{Thai}{\begin{thailang}}{\end{thailang}}
+  \setTransitionsFor{Thai}{\textthai\bgroup}{\egroup}
 \else
   \setTransitionsForLatin{\begin{englang}}{\end{englang}}
 \fi

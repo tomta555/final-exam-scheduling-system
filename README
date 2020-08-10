@@ -33,9 +33,24 @@ you can type "make" to build the sample report.  The supplied Makefile
 can be used as a starting point for building your own report.
 
 The sample report can also be built within Visual Studio Code.
-To get started, install the "LaTeX Workshop" extension.
-The first line in the report file (that begins with "% !TEX options")
-will direct the extension to use correct options when compiling the document.
+To get started, install the "LaTeX Workshop" extension, then add
+the following entry into "settings.json", under "settings" key:
+    "latex-workshop.latex.tools": [
+      {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [
+          "-pdfxe",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+        ]
+      }
+    ]
+See
+  https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile#latex-recipes
+for details.
 This extension allows you to view the PDF file within Visual Studio Code.
 You can also use SyncTeX to navigate back and forth between
 source code and PDF output.  See 
