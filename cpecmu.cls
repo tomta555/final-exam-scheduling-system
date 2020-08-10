@@ -28,7 +28,7 @@
 %% $Id$
 \NeedsTeXFormat{LaTeX2e}[2020/02/02]
 \ProvidesClass{cpecmu}
-[2020/05/13 v0.1.0
+[2020/08/10 v0.1.1
   Computer Engineering, Chiang Mai University senior report class]
 \newif\ifcpe
 \DeclareOption{cpe}{\cpetrue}
@@ -248,7 +248,11 @@
       \par\vspace*{0.75in}\par
       โดย
       \par\vspace*{0.75in}\par
-      {\@authorsize\@authorsTH{\quad รหัส~}{\\}}
+      {\@authorsize%
+      \begin{tabular}{@{}cl@{}}
+      \@authorsTH{& รหัส~}{\\}%
+      \end{tabular}%
+      }%
       \vfill
       \ifproject%
         โครงงานนี้ \\
@@ -273,7 +277,11 @@
       \par\vspace*{1in}\par
       \@titleEN
       \par\vspace*{1.5in}\par
-      {\@authorsize\@authorsEN{\quad}{\\}}
+      {\@authorsize%
+      \begin{tabular}{@{}cl@{}}
+      \@authorsEN{&}{\\}%
+      \end{tabular}%
+      }%
       \vfill
       \ifproject%
         A Project Submitted in Partial Fulfillment of Requirements \\
