@@ -1,0 +1,119 @@
+\NeedsTeXFormat{LaTeX2e}[2.09]
+\ProvidesPackage{authcomments}[2013/10/03 support for authored PDF comments]
+
+%% Usage: \usepackage[options]{authcomments}
+%%
+%%  \newcommenter{commentername}{RGB color}
+%%  ...
+%%  \commentername{comment}
+%%
+%% Example:
+%%
+%%  ...
+%%  \usepackage[checkNoComments]{authcomments}
+%%  \newcommenter{ACM}{1,0.7,0}
+%%  \newcommenter{Bob}{1,0.7,0}
+%%  \begin{document}
+%%    Text. \ACM{This is a useful comment}\Bobreply{I disagree}
+%%  \end{document}
+%%
+%% Options:
+%%
+%%   [disabled] : turn off all comments
+%%   [inline] : make comments appear inline
+%%   [checkNoComments] : turn off comments if the file .nocomments exists
+%%
+%% Written by Andrew Myers, July 2013
+%% Reply functionality added by Chin Isradisaikul, Feb 2015
+
+\def\authcomments@open{true}
+\DeclareOption{open}{\def\authcomments@open{true}}
+\DeclareOption{closed}{\def\authcomments@open{false}}
+\DeclareOption{disabled}{\def\noeditingmarks{}\typeout{** authcomments disabled}}
+\DeclareOption{inline}{\def\inlinecomments{}}
+\DeclareOption{checkNoComments}{\def\checknocomments{}}
+\DeclareOption*{\PackageWarning{authcomments}{Unknown option \CurrentOption}}
+\ProcessOptions
+
+% PDF comments don't appear in quite the right place on a lot of viewers. Overriding
+% these allows changing the positioning.
+\def\authcomments@hoffset{0pt}
+\def\authcomments@voffset{-0.25pt}
+\def\authcomments@hoffsetnum{0}
+
+\def\authcomments@replyoffset{10} %pt
+
+\ifx\checknocomments\undefined
+    \relax
+\else
+    \IfFileExists{.nocomments}{\def\noeditingmarks{}}{}
+\fi
+
+\newcommand\@auth@allowspecials{\@makeother"\@makeother_\@makeother$}
+
+\newsavebox\auth@comment
+
+\ifx\noeditingmarks\undefined
+   \usepackage{xcolor}
+   \ifx\inlinecomments\undefined
+      % \RequirePackage[opacity=0.75,open=\authcomments@open,hoffset=\authcomments@hoffset,voffset=\authcomments@voffset]{pdfcomment}
+      % \newcount\replies
+
+      % \RequirePackage{xpatch}
+      % % fix from https://github.com/CTeX-org/forum/issues/14
+      % % change the dimension that stores the width of annotation
+      % \xpatchcmd\pc@soul@markup{\ulwidth}{\pc@box@width}{}{\ddt}
+
+      % % change entrance to \@new@soul, and substitute each of 2 occurrences
+      % \xpatchcmd\pdfmarkupcomment{\SOUL@}{\@new@soul}{}{\ddt} 
+      % \xpatchcmd\pdfmarkupcomment{\SOUL@}{\@new@soul}{}{\ddt}
+
+      % \def\@new@soul#1{%
+      % % \pc@box@width is provided by "pdfcomment.sty"
+      % \settowidth{\pc@box@width}{#1}%
+      % \pc@soul@markup
+      % #1%
+      % }
+      \RequirePackage{soul}
+
+     \reversemarginpar
+     \def\@authcomment#1#2#3#4{%\global\replies%
+      %   \authcomments@hoffsetnum\relax
+      %   \ifvmode
+      %       %\typeout{comment in vmode: "#3"}
+      %       \egroup
+      %       \savebox\auth@comment{\pdfcomment[author=#1,color=#2]{#1: #3}}
+      %       \everypar{\usebox\auth@comment\everypar{}} % attach to start of next paragraph. May cause trouble with section headers.
+      %   \else
+            %\typeout{comment in hmode: "#3"}
+            \colorlet{@authcomments@hl}{#2!40}
+            \sethlcolor{@authcomments@hl}\hl{#3}\marginpar[\realsinglespacing\raggedright\textcolor{#2}{\footnotesize #1: #4}]{}%\pdfcomment[author=#1,color=#2]{#1: #4}%
+            \egroup
+      %   \fi
+     }
+     \def\@authreply#1#2#3{%\global\advance\replies%
+      %   \authcomments@replyoffset\relax\pdfcomment[author=#1,color=#2,hoffset=\replies pt,voffset=-\replies pt]{#1: #3}
+         \marginpar[\raggedright\textcolor{#2}{\realsinglespacing\footnotesize #1: #3}]{}
+         \egroup
+     }
+
+     \def\newcommenter#1#2{
+        \definecolor{#1@authcomment@color}{rgb}{#2}
+        \expandafter\def\csname #1\endcsname{\bgroup\@auth@allowspecials\@authcomment{#1}{#1@authcomment@color}}
+        \expandafter\def\csname #1reply\endcsname{\bgroup\@auth@allowspecials\@authreply{#1}{#1@authcomment@color}}
+     }
+   \else
+     \newcommand\@authcomment[4]{\textcolor{#2}{[#1: #3]}\egroup}
+     \def\newcommenter#1#2{
+        \definecolor{#1@authcomment@color}{rgb}{#2}
+        \colorlet{#1@authcomment@shade}{#1@authcomment@color!60!black}
+        \expandafter\def\csname #1\endcsname{\bgroup\@auth@allowspecials\@authcomment{#1}{#1@authcomment@shade}}
+     }
+   \fi
+     
+\else
+   \newcommand\newcommenter[2]{
+        \expandafter\def\csname#1\endcsname##1{\ignorespaces}
+        \expandafter\def\csname#1reply\endcsname##1{\ignorespaces}
+    }
+\fi
