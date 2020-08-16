@@ -1,9 +1,5 @@
 \documentclass[semifinal]{cpecmu}
 
-%% This is a sample document demonstrating how to use the CPECMU
-%% project template. If you are having trouble, see "cpecmu.pdf" for
-%% documentation.
-
 \projectNo{69}
 \acadyear{2020}
 
@@ -22,6 +18,14 @@
 
 %% Add bookmarks and hyperlinks in the document.
 \usepackage[colorlinks=true,allcolors=Blue4,citecolor=red,linktoc=all]{hyperref}
+
+%% Set up commenting
+\iffinal
+  \usepackage[disabled]{authcomments}
+\else
+  \usepackage{authcomments}
+\fi
+\newcommenter{CI}{0.0,0.5625,0.0}  % green
 
 %% Needed just by this example, but maybe not by most reports
 \usepackage{afterpage} % for outputting
