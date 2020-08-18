@@ -74,7 +74,8 @@
       % \pc@soul@markup
       % #1%
       % }
-      \RequirePackage{soul}
+   %   \RequirePackage{soul}
+     \RequirePackage{ulem}
 
      \reversemarginpar
      \def\@authcomment#1#2#3#4{%\global\replies%
@@ -86,8 +87,11 @@
       %       \everypar{\usebox\auth@comment\everypar{}} % attach to start of next paragraph. May cause trouble with section headers.
       %   \else
             %\typeout{comment in hmode: "#3"}
-            \colorlet{@authcomments@hl}{#2!40}
-            \sethlcolor{@authcomments@hl}\hl{#3}\marginpar[\realsinglespacing\raggedright\textcolor{#2}{\footnotesize #1: #4}]{}%\pdfcomment[author=#1,color=#2]{#1: #4}%
+            % \colorlet{@authcomments@hl}{#2!40}%
+            % \sethlcolor{@authcomments@hl}\protect\hl{#3}%
+            \textcolor{#2}{\uuline{#3}}%
+            \marginpar[\realsinglespacing\raggedright\textcolor{#2}{\footnotesize #1: #4}]{}%
+            % \pdfcomment[author=#1,color=#2]{#1: #4}%
             \egroup
       %   \fi
      }
@@ -97,14 +101,14 @@
          \egroup
      }
 
-     \def\newcommenter#1#2{
+     \def\newcommenter#1#2{%
         \definecolor{#1@authcomment@color}{rgb}{#2}
         \expandafter\def\csname #1\endcsname{\bgroup\@auth@allowspecials\@authcomment{#1}{#1@authcomment@color}}
         \expandafter\def\csname #1reply\endcsname{\bgroup\@auth@allowspecials\@authreply{#1}{#1@authcomment@color}}
      }
    \else
      \newcommand\@authcomment[4]{\textcolor{#2}{[#1: #3]}\egroup}
-     \def\newcommenter#1#2{
+     \def\newcommenter#1#2{%
         \definecolor{#1@authcomment@color}{rgb}{#2}
         \colorlet{#1@authcomment@shade}{#1@authcomment@color!60!black}
         \expandafter\def\csname #1\endcsname{\bgroup\@auth@allowspecials\@authcomment{#1}{#1@authcomment@shade}}
