@@ -89,7 +89,7 @@
             %\typeout{comment in hmode: "#3"}
             % \colorlet{@authcomments@hl}{#2!40}%
             % \sethlcolor{@authcomments@hl}\protect\hl{#3}%
-            \textcolor{#2}{\uuline{#3}}%
+            \textcolor{#2}{{#3}}%
             \marginpar[\realsinglespacing\raggedright\textcolor{#2}{\footnotesize #1: #4}]{}%
             % \pdfcomment[author=#1,color=#2]{#1: #4}%
             \egroup
@@ -97,7 +97,7 @@
      }
      \def\@authreply#1#2#3{%\global\advance\replies%
       %   \authcomments@replyoffset\relax\pdfcomment[author=#1,color=#2,hoffset=\replies pt,voffset=-\replies pt]{#1: #3}
-         \marginpar[\raggedright\textcolor{#2}{\realsinglespacing\footnotesize #1: #3}]{}
+         \marginpar[\realsinglespacing\raggedright\textcolor{#2}{\footnotesize #1: #3}]{}
          \egroup
      }
 
