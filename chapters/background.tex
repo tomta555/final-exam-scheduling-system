@@ -1,9 +1,33 @@
 \chapter{\ifcpe ทฤษฎีที่เกี่ยวข้อง\else Background Knowledge and Theory\fi}
-
 การทำโครงงาน เริ่มต้นด้วยการศึกษาค้นคว้า ทฤษฎีที่เกี่ยวข้อง หรือ งานวิจัย/โครงงาน ที่เคยมีผู้นำเสนอไว้แล้ว ซึ่งเนื้อหาในบทนี้ก็จะเกี่ยวกับการอธิบายถึงสิ่งที่เกี่ยวข้องกับโครงงาน เพื่อให้ผู้อ่านเข้าใจเนื้อหาในบทถัดๆ ไปได้ง่ายขึ้น
+\section{Literature review}
+การกำหนดเวลาสอบปลายภาคเพื่อหลีกเลี่ยงปัญหานักศึกษาคนใดๆ มีการสอบในช่วงเวลาเดียวกัน ซึ่งสามารถแปลงปัญหานี้กลายเป็น graph coloringproblem ได้ 
+โดยที่จุดแต่ละจุดในกราฟเป็นหลักสูตรที่เปิดสอนในภาคการศึกษานั้น 
+และมีเส้นที่อยู่เชื่อมระหว่างสองจุดเป็นจำนวนที่นักศึกษาลงทะเบียนเรียนทั้งสองหลักสูตร จากนั้นจุดในกราฟจะถูกกำหนดสีเพื่อไม่ให้จุดสองจุดใดๆ 
+ที่เชื่อมกันมีสีเดียวกันซึ่งสอดคล้องกับช่วงเวลาในการสอบปลายภาค
 
-\section{The first section}
-The text for Section 1 goes here.
+จากการแปลงปัญหากำหนดตารางสอบปลายภาคเป็น graph coloring แบบพื้นฐานหรือไม่คำนึงถึงข้อจำกัดอื่น ๆ 
+ตัวอย่างเช่น ไม่จารณาความจุที่นั่งสำหรับการสอบแต่ละช่วงเวลาของนักศึกษา จำนวนอาจารย์ที่คุมสอบแต่ละช่วงเวลา และการกระจายวิชาสอบสำหรับนักศึกษาแต่ละคน 
+ถึงแม้จะไม่มีหนดหรือข้อจำกัดใด ๆ ปัญหา graph coloring ก็เป็นปัญหา NP-complete อยู่แล้ว 
+ซึ่งหมายความว่าไม่มีอัลกอริทึมที่ใช้เวลา polynomial-time ในการแก้ไขปัญหาได้อย่างเหมาะสมที่สุด 
+ทำให้เราต้องใช้วิธีที่ดีในระดับที่ยอมรับได้แต่สามารถแก้ไขปัญหาอย่างแน่นอน ดังนั้นจึงมีการใช้ metaheuristic algorithms ที่ใช้เวลาในการแก้ปัญหาที่น้อยกว่าเพื่อแก้ปัญหา graph coloring แต่อาจจะไม่ได้วิธีแก้ปัญหาที่ดีที่สุด
+\section{Tools}
+\subsection{Gurobi Optimizer}
+  เป็น Solver ที่ใช้สำหรับแก้ปัญหา Optimization ที่จะเน้นไปทางด้านของปัญหา 
+\begin{itemize}
+  \item Linear programming (LP)
+  \item Mixed-integer linear programming (MILP)
+  \item Quadratic programming (QP)
+  \item Mixed-integer quadratic programming (MIQP)
+  \item Quadratically-constrained programming (QCP)
+  \item Mixed-integer quadratically-constrained programming (MIQCP)
+\end{itemize}
+โดยเราจะนำผลลัพธ์ที่ได้จาก Gurobi Optimizer เปรียบเทียบกับผลลัพธ์ที่ได้จากอัลกอลิทิมของเราเพื่อวัดประสิทธิภาพ
+
+\section{Algorithm}
+\subsection{Metaheuristic Algorithms}
+\subsection{Genetic Algorithms}
+
 
 \section{Second section}
 Section 2 text.
@@ -39,13 +63,7 @@ and $\varepsilon_\mathit{air}$ is the dielectric constant of air.
 
 % define a command that produces some filler text, the lorem ipsum.
 \newcommand{\loremipsum}{
-  \textit{Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-  aliquip ex ea commodo consequat. Duis aute irure dolor in
-  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-  culpa qui officia deserunt mollit anim id est laborum.}\par}
+  \textit{แม้งเอ้ย}\par}
 
 \begin{figure}
   \centering
