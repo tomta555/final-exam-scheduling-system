@@ -57,12 +57,11 @@
 และจะพิจารณาเฉพาะข้อจำกัดทางด้านเวลาเท่านั้น โดยมีขอบเขตของโครงงานดังนี้ 
 \subsection{\ifcpe ขอบเขตด้านฮาร์ดแวร์\else Hardware scope\fi}
 \begin{enumerate}
-    \item คอมพิวเตอร์ที่มีความสามารถในการประมวลผลสูง\CIreply{สูงขนาดไหน} เพื่อลดเวลาในการประมวลผลตารางสอบ
+    \item ระบบที่จะพัฒนานั้นจะสามารถทำงานได้บนคอมพิวเตอร์ที่ใช้ระบบปฏิบัติการ Windows 7 / Windows 10 หรือระบบปฏิบัติการ Linux เท่านั้น
 \end{enumerate}
 \subsection{\ifcpe ขอบเขตด้านซอฟต์แวร์\else Software scope\fi}
-\CIreply{real-time? เวลาที่ใช้?}
 \begin{enumerate}
-    \item ระบบต้องใช้เวลาอย่างน้อย 8 ชั่วโมง ในการประมวลผลตารางสอบด้วย Optimizer\CIreply{realistic?}
+    \item ระบบที่จะพัฒนานั้นจะสามารถทำงานได้หากติดตั้ง Python 3.6 ขึ้นไป เท่านั้น \TSNAreply{ไม่แน่ใจ ใส่ไว้ก่อน}
 \end{enumerate}
 \subsection{ข้อจำกัดที่นำมาพิจารณาในการจัดตารางสอบ}
 \begin{enumerate}
@@ -95,14 +94,15 @@
 
 \section{\ifcpe เทคโนโลยีและเครื่องมือที่ใช้\else Technology and tools\fi}
 
-\subsection{\ifcpe เทคโนโลยีด้านฮาร์ดแวร์\else Hardware technology\fi}
-\begin{enumerate}
-    \item Cloud Computing ?
-\end{enumerate}
+% \subsection{\ifcpe เทคโนโลยีด้านฮาร์ดแวร์\else Hardware technology\fi}
+% \begin{enumerate}
+
+% \end{enumerate}
 \subsection{\ifcpe เทคโนโลยีด้านซอฟต์แวร์\else Software technology\fi}
 \begin{enumerate}
     \item Google OR-Tools
     \item Gurobi Optimizer
+    \item Python
 \end{enumerate}
 
 \section{\ifcpe แผนการดำเนินงาน\else Project plan\fi}
@@ -124,7 +124,8 @@
 
 \section{\ifcpe บทบาทและความรับผิดชอบ\else Roles and responsibilities\fi}
 \begin{itemize}
-\item นายกฤษฏิ์ อุปนันท์: รับผิดชอบหน้าที่ในการในการเก็บรวบรวมข้อมูลและสรุปผลประมวลผลความคิดเห็นและความต้องการของนักศึกษาเพื่อนำมาใช้ในการอ้างอิงเป็นข้อจำกัดและขอบเขตในการพัฒนาระบบ
+\item นายกฤษฏิ์ อุปนันท์: รับผิดชอบหน้าที่ในการเก็บรวบรวมและสรุปผลความคิดเห็นและความต้องการของนักศึกษา
+จากแบบสำรวจเพื่อนำมาใช้ในการจัดลำดับความสำคัญของตัวชี้วัดที่ใช้ในการประเมินระบบ
 \item นายธนวงศ์ เสนีวงศ์ ณ อยุธยา: รับผิดชอบหน้าที่ในการศึกษาทฤษฎีที่เกี่ยวข้องและอัลกอลิทึมที่จำเป็นต้องใช้ในการพัฒาระบบ
 \end{itemize}
 
