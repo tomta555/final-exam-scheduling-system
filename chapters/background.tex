@@ -29,9 +29,13 @@
 ผลลัพธ์ที่ได้จาก Gurobi Optimizer อาจนำมาใช้เป็นตัวเปรียบเทียบประสิทธิภาพกับผลลัพธ์การทำงานที่ได้จากอัลกอลิทึมของเรา
 
 \section{algorithm}
-\subsection{Metaheuristic algorithms}
+\subsection{metaheuristic algorithms}
+meta­heuristic เรียกว่าเป็นวิธีการหาคำตอบที่ใช้ได้กับหลากหลายปัญหา โดยมีหลักการที่ใช้สำหรับแก้ไขปัญหามากมาย
+หลักการเหล่านี้จะเป็นการลอกเลียนหลักธรรมชาติ เช่น genetic algorithm, similated annealing, และ ant colony
+optimization และนำมาสร้างเป็น
+
 \subsection{genetic algorithms}
-genetic algorithm  เป็นเทคนิคสำหรับค้นหาผลลัพธ์หรือคำตอบโดยประมาณของปัญหา โดยอาศัยหลักการจากทฤษฎีวิวัฒนาการจากชีววิทยาและหลักการคัดเลือกตามธรรมชาตินั่นคือ 
+genetic algorithm  เป็นหนึ่งใน metaheuristic ซึ่งเป็นเทคนิคสำหรับค้นหาผลลัพธ์หรือคำตอบโดยประมาณของปัญหา โดยอาศัยหลักการจากทฤษฎีวิวัฒนาการจากชีววิทยาและหลักการคัดเลือกตามธรรมชาตินั่นคือ 
 สิ่งมีชีวิตที่เหมาะสมที่สุดจึงจะอยู่รอด กระบวนการคัดเลือกได้เปลี่ยนแปลงสิ่งมีชีวิตให้เหมาะสมยิ่งขึ้นด้วยตัวปฏิบัติการทางพันธุกรรม เช่น การสืบพันธุ์ , การแลกเปลี่ยนยีน , การกลายพันธุ์  
 
 
@@ -47,105 +51,13 @@ genetic algorithm  เป็นเทคนิคสำหรับค้นห�
   \item mutation เป็นการสุ่มข้อมูลบาง bit ของชุดข้อมูลให้มีค่าของข้อมูลตรงข้ามกลับค่าเดิม
 \end{itemize}
 \end{enumerate}
-อัลกอริทึม genetic algorithm จะจบการทำงานหลังจากการวนทำขั้นตอน fitness function และ genetic operator แล้วชุดข้อมูลที่เหมาะสมไม่มีการพัฒนาหรือไม่มีการเปลี่ยนแปลงไปในทางที่ดีขึ้น โดยที่ผลลัพธ์ที่ได้จากอัลกอริทึมนี้
+อัลกอริทึม genetic algorithm สามารถจบการทำงานได้หลายวิธี โดยมีเงื่อนไขจบการทำงานดังนี้
+\begin{itemize}
+  \item จบการทำงานเมื่อชุดข้อมูลที่เหมาะสมถึงรุ่นที่ต้องการ 
+  \item จบการทำงานเมื่อชุดข้อมูลที่เหมาะสมไม่มีการพัฒนาแล้วหรือไม่มีการเปลี่ยนแปลงไปในทางที่ดีขึ้นเป็นเวลานาน
+  \item จบการทำงานเมื่อ fitness scores ของชุดข้อมูลที่เหมาะสมถึงค่าที่ต้องการ
+\end{itemize}
 
-\section{Second section}
-Section 2 text.
-
-\subsection{Subsection heading goes here}
-
-Subsection 1 text
-
-\subsubsection{Subsubsection 1 heading goes here}
-Subsubsection 1 text
-
-\subsubsection{Subsubsection 2 heading goes here}
-Subsubsection 2 text
-
-\section{Third section}
-Section 3 text. The dielectric constant\index{dielectric constant}
-at the air-metal interface determines
-the resonance shift\index{resonance shift} as absorption or capture occurs
-is shown in Equation~\eqref{eq:dielectric}:
-
-\begin{equation}\label{eq:dielectric}
-k_1=\frac{\omega}{c({1/\varepsilon_m + 1/\varepsilon_i})^{1/2}}=k_2=\frac{\omega
-\sin(\theta)\varepsilon_\mathit{air}^{1/2}}{c}
-\end{equation}
-
-\noindent
-where $\omega$ is the frequency of the plasmon, $c$ is the speed of
-light, $\varepsilon_m$ is the dielectric constant of the metal,
-$\varepsilon_i$ is the dielectric constant of neighboring insulator,
-and $\varepsilon_\mathit{air}$ is the dielectric constant of air.
-
-\section{About using figures in your report}
-
-% define a command that produces some filler text, the lorem ipsum.
-\newcommand{\loremipsum}{
-  \textit{แม้งเอ้ย}\par}
-
-\begin{figure}
-  \centering
-
-  \fbox{
-     \parbox{.6\textwidth}{\loremipsum}
-  }
-
-  % To include an image in the figure, say myimage.pdf, you could use
-  % the following code. Look up the documentation for the package
-  % graphicx for more information.
-  % \includegraphics[width=\textwidth]{myimage}
-
-  \caption[Sample figure]{This figure is a sample containing \gls{lorem ipsum},
-  showing you how you can include figures and glossary in your report.
-  You can specify a shorter caption that will appear in the List of Figures.}
-  \label{fig:sample-figure}
-\end{figure}
-
-Using \verb.\label. and \verb.\ref. commands allows us to refer to
-figures easily. If we can refer to Figures
-\ref{fig:walrus} and \ref{fig:sample-figure} by name in the {\LaTeX}
-source code, then we will not need to update the code that refers to it
-even if the placement or ordering of the figures changes.
-
-\loremipsum\loremipsum
-
-% This code demonstrates how to get a landscape table or figure. It
-% uses the package lscape to turn everything but the page number into
-% landscape orientation. Everything should be included within an
-% \afterpage{ .... } to avoid causing a page break too early.
-\afterpage{
-  \begin{landscape}
-  \begin{table}
-    \caption{Sample landscape table}
-    \label{tab:sample-table}
-
-    \centering
-
-    \begin{tabular}{c||c|c}
-        Year & A & B \\
-        \hline\hline
-        1989 & 12 & 23 \\
-        1990 & 4 & 9 \\
-        1991 & 3 & 6 \\
-    \end{tabular}
-  \end{table}
-  \end{landscape}
-}
-
-\loremipsum\loremipsum\loremipsum
-
-\section{Overfull hbox}
-
-When the \verb.semifinal. option is passed to the \verb.cpecmu. document class,
-any line that is longer than the line width, i.e., an overfull hbox, will be
-highlighted with a black solid rule:
-\begin{center}
-\begin{minipage}{2em}
-juxtaposition
-\end{minipage}
-\end{center}
 
 \section{\ifcpe%
 ความรู้ตามหลักสูตรซึ่งถูกนำมาใช้หรือบูรณาการในโครงงาน
