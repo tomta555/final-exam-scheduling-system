@@ -33,6 +33,7 @@
 %% Needed just by this example, but maybe not by most reports
 \usepackage{afterpage} % for outputting
 \usepackage{pdflscape} % for landscape figures and tables. 
+
 \usepackage{forest}
 \definecolor{folderbg}{RGB}{124,166,198}
 \definecolor{folderborder}{RGB}{110,144,169}
@@ -44,7 +45,12 @@
         \filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
           (-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
       }
-    }
+}
+
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
 %% Some other useful packages. Look these up to find out how to use
 %% them.
 % \usepackage{natbib}    % for author-year citation styles
