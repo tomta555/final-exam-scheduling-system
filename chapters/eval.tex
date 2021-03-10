@@ -66,12 +66,12 @@ Penalty ของตารางสอบแต่ละแบบที่ได
 
 \section{ผลการประเมินระบบด้วยค่า penalty}
 การประเมินระบบด้วยค่า penalty นั้นได้มีการจัดตารางสอบทั้งหมด 6 ภาคการศึกษา ตั้งแต่ภาคการศึกษาที่ 1/2561 จนถึงภาคการศึกษาที่ 2/2563
-โดยในแต่ละภาคการศึกษาได้มีการทดลองจัดตารางสอบด้วยอัลกอลิทึมทั้งหมด 4 รูปแบบ และได้คิดคำนวณจำนวนครั้งที่เกิด penalty และค่า penalty แสดงดังตารางที่ \ref{tab:result_table_161} - \ref{tab:result_table_263}
+โดยในแต่ละภาคการศึกษาได้มีการทดลองจัดตารางสอบด้วยอัลกอลิทึมทั้งหมด 4 รูปแบบ และได้คิดคำนวณจำนวนครั้งที่เกิด penalty และค่า penalty ของตารางสอบแต่ละแบบ ดังตารางที่ \ref{tab:result_table_161} - \ref{tab:result_table_263}
 \begin{table}[]
     \centering
     \textbf{Total courses: 1432} \quad \quad \textbf{Total students having an exam: 13171}
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}cccccccccc@{}}
+    \begin{tabular}{@{}ccrrrrrrrr@{}}
     \toprule
     \textbf{รูปแบบ}                              & \textbf{Penalty}                      & \textbf{1}                & \textbf{2}               & \textbf{3}                   & \textbf{4}                  & \textbf{5}                  & \textbf{6}                  & \textbf{7}                    & \textbf{รวม}                  \\ \midrule
                                                  & \textbf{Count}                        & 0                         & 0                        & 354                          & 430                         & 1854                        & 171                         & 12930                         & 15739                         \\ \cmidrule(l){2-10} 
@@ -91,7 +91,7 @@ Penalty ของตารางสอบแต่ละแบบที่ได
     \centering
     \textbf{Total courses: 1551} \quad \quad \textbf{Total students having an exam: 13095}
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}cccccccccc@{}}
+    \begin{tabular}{@{}ccrrrrrrrr@{}}
     \toprule
     \textbf{รูปแบบ}                              & \textbf{Penalty}                      & \textbf{1}                  & \textbf{2}               & \textbf{3}                   & \textbf{4}                   & \textbf{5}                   & \textbf{6}                  & \textbf{7}                    & \textbf{รวม}                  \\ \midrule
                                                  & \textbf{Count}                        & 1                           & 0                        & 1050                         & 583                          & 296                          & 314                         & 10977                         & 13221                         \\ \cmidrule(l){2-10} 
@@ -111,7 +111,7 @@ Penalty ของตารางสอบแต่ละแบบที่ได
     \centering
     \textbf{Total courses: 1729} \quad \quad \textbf{Total students having an exam: 19786}
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}cccccccccc@{}}
+    \begin{tabular}{@{}ccrrrrrrrr@{}}
     \toprule
     \textbf{รูปแบบ}                              & \textbf{Penalty}                      & \textbf{1}                  & \textbf{2}               & \textbf{3}                   & \textbf{4}                   & \textbf{5}                   & \textbf{6}                  & \textbf{7}                    & \textbf{รวม}                  \\ \midrule
                                                  & \textbf{Count}                        & 0                           & 0                        & 1110                         & 657                          & 1217                         & 639                         & 18036                         & 21659                         \\ \cmidrule(l){2-10} 
@@ -121,7 +121,9 @@ Penalty ของตารางสอบแต่ละแบบที่ได
                                                  & \textbf{Count}                        & 1                           & 0                        & 1500                         & 595                          & 259                          & 159                         & 15990                         & 18504                         \\ \cmidrule(l){2-10} 
     \multirow{-2}{*}{BFS-STD}                    & \textbf{Value}                        & 2                           & 0                        & 117000                       & 46410                        & 9842                         & 4611                        & 191880                        & 369745                        \\ \midrule
     {\color[HTML]{FE0000} }                      & {\color[HTML]{FE0000} \textbf{Count}} & {\color[HTML]{FE0000} 3}    & {\color[HTML]{FE0000} 0} & {\color[HTML]{FE0000} 965}   & {\color[HTML]{FE0000} 334}   & {\color[HTML]{FE0000} 337}   & {\color[HTML]{FE0000} 231}  & {\color[HTML]{FE0000} 15535}  & {\color[HTML]{FE0000} 17405}  \\ \cmidrule(l){2-10} 
-    \multirow{-2}{*}{{\color[HTML]{FE0000} STD}} & {\color[HTML]{FE0000} \textbf{Value}} & {\color[HTML]{FE0000} 4259} & {\color[HTML]{FE0000} 0} & {\color[HTML]{FE0000} 75270} & {\color[HTML]{FE0000} 26052} & {\color[HTML]{FE0000} 12806} & {\color[HTML]{FE0000} 6699} & {\color[HTML]{FE0000} 186420} & {\color[HTML]{FE0000} 311506} \\ \bottomrule
+    \multirow{-2}{*}{{\color[HTML]{FE0000} STD}} & {\color[HTML]{FE0000} \textbf{Value}} & {\color[HTML]{FE0000} 4259} & {\color[HTML]{FE0000} 0} & {\color[HTML]{FE0000} 75270} & {\color[HTML]{FE0000} 26052} & {\color[HTML]{FE0000} 12806} & {\color[HTML]{FE0000} 6699} & {\color[HTML]{FE0000} 186420} & {\color[HTML]{FE0000} 311506} \\ \midrule
+                                                 & \textbf{Count}                        & 0                           & 3247                     & 3406                         & 2333                         & 7663                         & 5863                        & 18667                         & 41179                         \\ \cmidrule(l){2-10} 
+    \multirow{-2}{*}{สำนักทะเบียน}                  & \textbf{Value}                        & 0                           & 32470000                 & 265668                       & 181974                       & 291194                       & 170027                      & 224004                        & 33602867                      \\ \bottomrule
     \end{tabular}%
     }
     \caption{ตารางแสดงค่า penalty ของตารางสอบเทอม 1/2562}
@@ -131,7 +133,7 @@ Penalty ของตารางสอบแต่ละแบบที่ได
     \centering
     \textbf{Total courses: 1828} \quad \quad \textbf{Total students having an exam: 19505}
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}cccccccccc@{}}
+    \begin{tabular}{@{}ccrrrrrrrr@{}}
     \toprule
     \textbf{รูปแบบ}                              & \textbf{Penalty}                      & \textbf{1}                 & \textbf{2}               & \textbf{3}                    & \textbf{4}                   & \textbf{5}                   & \textbf{6}                  & \textbf{7}                    & \textbf{รวม}                  \\ \midrule
                                                  & \textbf{Count}                        & 1                          & 0                        & 1624                          & 1072                         & 1460                         & 883                         & 16578                         & 21618                         \\ \cmidrule(l){2-10} 
@@ -141,7 +143,9 @@ Penalty ของตารางสอบแต่ละแบบที่ได
                                                  & \textbf{Count}                        & 0                          & 0                        & 1732                          & 864                          & 785                          & 448                         & 16085                         & 19914                         \\ \cmidrule(l){2-10} 
     \multirow{-2}{*}{BFS-STD}                    & \textbf{Value}                        & 0                          & 0                        & 135096                        & 67392                        & 29830                        & 12992                       & 193020                        & 438330                        \\ \midrule
     {\color[HTML]{FE0000} }                      & {\color[HTML]{FE0000} \textbf{Count}} & {\color[HTML]{FE0000} 1}   & {\color[HTML]{FE0000} 0} & {\color[HTML]{FE0000} 1303}   & {\color[HTML]{FE0000} 250}   & {\color[HTML]{FE0000} 343}   & {\color[HTML]{FE0000} 192}  & {\color[HTML]{FE0000} 14545}  & {\color[HTML]{FE0000} 16634}  \\ \cmidrule(l){2-10} 
-    \multirow{-2}{*}{{\color[HTML]{FE0000} STD}} & {\color[HTML]{FE0000} \textbf{Value}} & {\color[HTML]{FE0000} 497} & {\color[HTML]{FE0000} 0} & {\color[HTML]{FE0000} 101634} & {\color[HTML]{FE0000} 19500} & {\color[HTML]{FE0000} 13034} & {\color[HTML]{FE0000} 5568} & {\color[HTML]{FE0000} 174540} & {\color[HTML]{FE0000} 314773} \\ \bottomrule
+    \multirow{-2}{*}{{\color[HTML]{FE0000} STD}} & {\color[HTML]{FE0000} \textbf{Value}} & {\color[HTML]{FE0000} 497} & {\color[HTML]{FE0000} 0} & {\color[HTML]{FE0000} 101634} & {\color[HTML]{FE0000} 19500} & {\color[HTML]{FE0000} 13034} & {\color[HTML]{FE0000} 5568} & {\color[HTML]{FE0000} 174540} & {\color[HTML]{FE0000} 314773} \\ \midrule
+                                                 & \textbf{Count}                        & 1                          & 4732                     & 3908                          & 2608                         & 5757                         & 5157                        & 18698                         & 40861                         \\ \cmidrule(l){2-10} 
+    \multirow{-2}{*}{สำนักทะเบียน}                  & \textbf{Value}                        & 24129                      & 47320000                 & 304824                        & 203424                       & 218766                       & 149553                      & 224376                        & 48445072                      \\ \bottomrule
     \end{tabular}%
     }
     \caption{ตารางแสดงค่า penalty ของตารางสอบเทอม 2/2562}
@@ -151,7 +155,7 @@ Penalty ของตารางสอบแต่ละแบบที่ได
     \centering
     \textbf{Total courses: 1894} \quad \quad \textbf{Total students having an exam: 26549}
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}cccccccccc@{}}
+    \begin{tabular}{@{}ccrrrrrrrr@{}}
     \toprule
     \textbf{รูปแบบ}                              & \textbf{Penalty}                      & \textbf{1}                  & \textbf{2}               & \textbf{3}                    & \textbf{4}                   & \textbf{5}                   & \textbf{6}                  & \textbf{7}                    & \textbf{รวม}                  \\ \midrule
                                                  & \textbf{Count}                        & 2                           & 0                        & 1717                          & 681                          & 511                          & 524                         & 21515                         & 24950                         \\ \cmidrule(l){2-10} 
@@ -161,7 +165,9 @@ Penalty ของตารางสอบแต่ละแบบที่ได
                                                  & \textbf{Count}                        & 2                           & 0                        & 1722                          & 654                          & 486                          & 293                         & 23154                         & 26311                         \\ \cmidrule(l){2-10} 
     \multirow{-2}{*}{BFS-STD}                    & \textbf{Value}                        & 3856                        & 0                        & 134316                        & 51012                        & 18468                        & 8497                        & 277848                        & 493997                        \\ \midrule
     {\color[HTML]{FE0000} }                      & {\color[HTML]{FE0000} \textbf{Count}} & {\color[HTML]{FE0000} 2}    & {\color[HTML]{FE0000} 0} & {\color[HTML]{FE0000} 1556}   & {\color[HTML]{FE0000} 681}   & {\color[HTML]{FE0000} 563}   & {\color[HTML]{FE0000} 286}  & {\color[HTML]{FE0000} 20888}  & {\color[HTML]{FE0000} 23976}  \\ \cmidrule(l){2-10} 
-    \multirow{-2}{*}{{\color[HTML]{FE0000} STD}} & {\color[HTML]{FE0000} \textbf{Value}} & {\color[HTML]{FE0000} 1252} & {\color[HTML]{FE0000} 0} & {\color[HTML]{FE0000} 121368} & {\color[HTML]{FE0000} 53118} & {\color[HTML]{FE0000} 21394} & {\color[HTML]{FE0000} 8294} & {\color[HTML]{FE0000} 250656} & {\color[HTML]{FE0000} 456082} \\ \bottomrule
+    \multirow{-2}{*}{{\color[HTML]{FE0000} STD}} & {\color[HTML]{FE0000} \textbf{Value}} & {\color[HTML]{FE0000} 1252} & {\color[HTML]{FE0000} 0} & {\color[HTML]{FE0000} 121368} & {\color[HTML]{FE0000} 53118} & {\color[HTML]{FE0000} 21394} & {\color[HTML]{FE0000} 8294} & {\color[HTML]{FE0000} 250656} & {\color[HTML]{FE0000} 456082} \\ \midrule
+                                                 & \textbf{Count}                        & 0                           & 4983                     & 3786                           & 3498                           & 8676                           & 7784                   & 26703                         & 55430                         \\ \cmidrule(l){2-10} 
+    \multirow{-2}{*}{สำนักทะเบียน}                  & \textbf{Value}                        & 0                           & 49830000                 & 295308                         & 272844                         & 329688                         & 225736                 & 320436                        & 51274012                      \\ \bottomrule
     \end{tabular}%
     }
     \caption{ตารางแสดงค่า penalty ของตารางสอบเทอม 1/2563}
@@ -171,7 +177,7 @@ Penalty ของตารางสอบแต่ละแบบที่ได
     \centering
     \textbf{Total courses: 1770} \quad \quad \textbf{Total students having an exam: 24392}
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}cccccccccc@{}}
+    \begin{tabular}{@{}ccrrrrrrrr@{}}
     \toprule
     \textbf{รูปแบบ}                              & \textbf{Penalty}                      & \textbf{1}               & \textbf{2}               & \textbf{3}                    & \textbf{4}                   & \textbf{5}                   & \textbf{6}                   & \textbf{7}                    & \textbf{รวม}                  \\ \midrule
                                                  & \textbf{Count}                        & 1                        & 0                        & 2537                          & 747                          & 666                          & 616                          & 22015                         & 26582                         \\ \cmidrule(l){2-10} 
@@ -181,7 +187,9 @@ Penalty ของตารางสอบแต่ละแบบที่ได
                                                  & \textbf{Count}                        & 1                        & 0                        & 2011                          & 1612                         & 743                          & 474                          & 24440                         & 29281                         \\ \cmidrule(l){2-10} 
     \multirow{-2}{*}{BFS-STD}                    & \textbf{Value}                        & 4                        & 0                        & 156858                        & 125736                       & 28234                        & 13746                        & 293280                        & 617858                        \\ \midrule
                                                  & \textbf{Count}                        & 0                        & 1                        & 1862                          & 717                          & 515                          & 342                          & 21313                         & 24750                         \\ \cmidrule(l){2-10} 
-    \multirow{-2}{*}{STD}                        & \textbf{Value}                        & 0                        & 10000                    & 145236                        & 55926                        & 19570                        & 9918                         & 255756                        & 496406                        \\ \bottomrule
+    \multirow{-2}{*}{STD}                        & \textbf{Value}                        & 0                        & 10000                    & 145236                        & 55926                        & 19570                        & 9918                         & 255756                        & 496406                        \\ \midrule
+                                                 & \textbf{Count}                        & 2                        & 4128                     & 3224                          & 6477                         & 7468                         & 4206                         & 25640                         & 51145                         \\ \cmidrule(l){2-10} 
+    \multirow{-2}{*}{สำนักทะเบียน}               & \textbf{Value}                          & 333067582                 & 41280000                 & 251472                        & 505206                       & 283784                       & 121974                       & 307680                        & 375817698                     \\ \bottomrule
     \end{tabular}%
     }
     \caption{ตารางแสดงค่า penalty ของตารางสอบเทอม 2/2563}
