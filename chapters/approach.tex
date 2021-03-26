@@ -248,13 +248,76 @@
   \item อัลกอริทึมแบบที่ 4 STD ใช้วิธี Graph coloring โดยเรียงลำดับวิชา (node) ที่จะจัดช่วงเวลาสอบ (slot) ให้ ตามจำนวนนักศึกษาใน node นั้นจากมากไปน้อยก่อน
   หากมี node ที่จำนวนนักศึกษาเท่ากัน จะเรียงตามจำนวนดีกรีของ node จากมากไปน้อย และหากดีกรีเท่ากันอีกจะเรียงตามผลรวมจำนวนของ conflict ของ node นั้น ๆ 
   และสุดท้ายหากผลรวมจำนวนของ conflict เท่ากันจะเรียงตามรหัสวิชา
-  
-  
+    
 \end{enumerate}
+
 
 \begin{figure}
   \begin{center}
-    \includegraphics[]{images/exam_sched_flowchart.png}
+    \begin{tikzpicture}[flowchart]
+      \node[startstop] (start) {start};
+      \node[io] (a) [below=0.33cm of start] {{เลือกรูปแบบการทำงานของอัลกอริทึมจากทั้งหมด 4 รูปแบบ}};
+      \node[io2] (b) [below=0.33cm of a] {{
+        \begin{minipage}{5in}
+        \begin{itemize}
+        \item อ่านข้อมูลลงทะเบียนของนักศึกษาแต่ละคน
+        \item อ่านข้อมูลรายวิชาทั้งหมดที่มีนักศึกษาลงทะเบียน
+        \item อ่านข้อมูลคู่รายวิชาที่มีนักศึกษาลงทะเบียนทั้งสองวิชาอย่างน้อย 1 คน (conflicts)
+        \item อ่านข้อมูลรายวิชาทั้งหมดที่มีการจัดสอบ
+        \item อ่านข้อมูลรายวิชาของแต่คณะ
+        \item อ่านข้อมูลจำนวนความจุของที่นั่งสอบของแต่ละคณะ
+      \end{itemize}        
+      \end{minipage}    
+      }};
+      \node[process] (proa) [below=0.33cm of b ] {
+        \begin{minipage}{3.6in}
+          คัดกรองรายวิชาที่ต้องจัดสอบให้เหลือเพียงรายวิชาที่มีนักศึกษาลงทะเบียนและเป็นรายวิชาที่มีอยู่ในลิสต์ของรายวิชาที่มีการจัดสอบ
+        \end{minipage}    
+        };
+      \node[process] (prob) [below=0.33cm of proa] {
+      \begin{minipage}{3.7in}
+        สร้างกราฟ
+        \begin{itemize}
+        \item เพิ่ม nodes ของกราฟจากรายวิชาที่ได้จากขั้นตอนก่อนหน้า
+        \item เพิ่ม edges ของแต่ละ nodes ตามคู่รายวิชาที่มี conflicts
+      \end{itemize}        
+      \end{minipage}                      
+      };
+      \node[process] (proc) [below=0.33cm of prob] {แยกกราฟย่อยออกจากกราฟตาม connected component};
+      \node[connector] (con) [below = 0.33cm of proc] {};
+      \node[decision] (desa) [below=0.33cm of con] {visit ครบทุก component?};
+      \node[process] (prod) [below=0.33cm of desa] {visit component ถัดไป};
+      \node[process] (proe) [below=0.33cm of prod] {
+        \begin{minipage}{4.3in}
+          จัดตารางสอบให้แต่ละ node โดยการเลือก slot สอบตาม penalty modle โดยการทดลองทุก slot ที่จัดสอบได้และเลือก slot ที่ทำให้ค่า penalty น้อยที่สุด โดยจะจัด slot สอบให้แต่ละ node เรียงตามรูปแบบของอัลกอริทึมที่เลือก
+        \end{minipage} 
+      };
+      \node[process] (prof) [below=0.15cm of proe] {คิดคำนวณค่า penalty ของตารางสอบ};
+      \node[io] (c) [below=0.35cm of prof] {
+        \begin{minipage}{3.7in}
+          \begin{itemize}
+          \item แสดงค่า penalty ของตารางสอบ
+          \item เขียนผลลัพธ์ของตารางสอบและค่า penalty ลงในไฟล์
+        \end{itemize}        
+        \end{minipage}  };
+      \node[startstop] (end) [below=0.35cm of c] {end};
+      
+      \draw[arrow] (start) -- (a);
+      \draw[arrow] (a) -- (b);
+      \draw[arrow] (b) -- (proa);
+      \draw[arrow] (proa) -- (prob);
+      \draw[arrow] (prob) -- (proc);
+      \draw[arrow] (proc) -- (con);
+      \draw[arrow] (con) -- (desa);
+      \draw[arrow] (proc) -- (con);
+      \draw[arrow] (desa) -- node[near start,right]{False} (prod);
+      \draw[arrow] (desa.east) -- node[near start,above]{True} +(3.5cm,0) |- (prof);
+      \draw[arrow] (prod) -- (proe);
+      \draw[arrow] (proe.west) -- +(-0.5cm,0) |- (con);
+      \draw[arrow] (prof) -- (c);
+      \draw[arrow] (c) -- (end);
+            
+    \end{tikzpicture}
   \end{center}
   \caption[แผนผังการทำงานของโปรแกรม]{แผนผังการทำงานของโปรแกรม}
   \label{fig:flowchart}     
