@@ -51,6 +51,28 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
+\tikzset{>/.tip={Latex[length=2mm]}}
+\tikzset{arrow/.style={->}}
+\tikzset{double distance=2pt}
+\tikzset{flowchart/.style = {node distance=0.75cm and 1cm,
+     base/.style = {draw=black,
+                    inner sep=1mm, outer sep=0mm,
+                    minimum height=1cm,
+                    align=flush center},
+startstop/.style = {base, rounded corners=5mm, minimum width=1in},
+  process/.style = {base, inner xsep=0.5cm},
+ decision/.style = {base, diamond, aspect=3},
+connector/.style = {draw, circle, minimum size=0pt},
+       io/.style = {base, trapezium,
+                    trapezium left angle=60, trapezium right angle=-60,
+                    trapezium stretches=true},
+        io2/.style = {base, trapezium,
+                    trapezium left angle=75, trapezium right angle=-75,
+                    trapezium stretches=true}
+                    }}
 %% Some other useful packages. Look these up to find out how to use
 %% them.
 % \usepackage{natbib}    % for author-year citation styles
