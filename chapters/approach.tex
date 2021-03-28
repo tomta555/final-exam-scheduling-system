@@ -128,105 +128,6 @@
 หลังจากได้ผลการสำรวจแล้วเราจึงได้ออกสำรวจเพื่อเก็บข้อมูลรายวิชาต่าง ๆ ที่มีการจัดสอบจากแต่ละคณะ โดยได้ทำคำร้องขอข้อมูลไปยังแต่ละคณะ ซึ่งข้อมูลที่ต้องการใช้งาน ได้แก่ ข้อมูลห้องที่สามารถจัดสอบได้พร้อมจำนวนนักศึกษาที่จุได้ในแต่ละห้องของแต่ละคณะ และข้อมูลตารางสอบปลายภาคของแต่ละคณะ เป็นเวลา 6 ปีย้อนหลัง ซึ่งทางเราได้ตั้งสมมติฐานว่าวิชาไหนที่มีการจัดสอบและมีรายชื่อวิชาอยู่ในคำสั่งแต่งตั้งกรรมการคุมสอบของแต่ละคณะนั้น จะมีการจัดสอบปลายภาคจริง ๆ และเวลาที่จัดสอบอยู่ในช่วงเวลาที่สำนักทะเบียนกำหนด
 
 \section{โครงสร้างและการทำงานของโปรแกรม}
-\subsection{ข้อมูลที่ต้องใช้ในการจัดตารางสอบ}
-ข้อมูลนำเข้าของโปรแกรมจะมีโครงสร้างไดเรกทอรี่และไฟล์ดังที่แสดง
-
-\begin{forest}
-  for tree={
-    font=\ttfamily,
-    grow'=0,
-    child anchor=west,
-    parent anchor=south,
-    anchor=west,
-    calign=first,
-    inner xsep=7pt,
-    edge path={
-      \noexpand\path [draw, \forestoption{edge}]
-      (!u.south west) +(7.5pt,0) |- (.child anchor) pic {folder} \forestoption{edge label};
-    },
-    % style for your file node 
-    file/.style={edge path={\noexpand\path [draw, \forestoption{edge}]
-      (!u.south west) +(7.5pt,0) |- (.child anchor) \forestoption{edge label};},
-      inner xsep=2pt,font=\small\ttfamily
-                 },
-    before typesetting nodes={
-      if n=1
-        {insert before={[,phantom]}}
-        {}
-    },
-    fit=band,
-    before computing xy={l=15pt},
-  } 
-[root-folder
-  [data
-    [all-exam-courses
-      [all-exam-courses.in,file]
-    ]
-    [capacity
-      [faculty-capacity.in,file]
-    ]
-    [exam-courses-faculty
-      [01.in,file]
-      [02.in,file]
-      [03.in,file]
-      [...,file]
-      [19.in,file]
-      [20.in,file]
-      [21.in,file]
-    ]
-    [regist
-      [regist-academic\_year-semester.in,file]
-    ]
-    [sched
-      [conflicts.in,file]
-      [courses.in,file]
-    ]
-  ]
-  [final\_exam\_graph\_coloring.py,file]
-]
-\end{forest}
-\begin{figure}
-  \begin{center}
-    \includegraphics[]{images/all-exam1.png}
-  \end{center}
-  \caption[ตัวอย่างไฟล์รายวิชาที่มีสอบ]{ตัวอย่างไฟล์รายวิชาที่มีสอบ}
-  \label{fig:all_courses}     
-\end{figure}
-\begin{figure}
-  \begin{center}
-    \includegraphics[]{images/capacity1.png}
-  \end{center}
-  \caption[ตัวอย่างไฟล์ความจุห้องสอบ]{ตัวอย่างไฟล์ความจุห้องสอบ}
-  \label{fig:capacity}     
-\end{figure}
-\begin{figure}
-  \begin{center}
-    \includegraphics[]{images/regist1.png}
-  \end{center}
-  \caption[ตัวอย่างไฟล์ลงทะเบียนของนักศึกษา]{ตัวอย่างไฟล์ลงทะเบียนของนักศึกษา}
-  \label{fig:regist}     
-\end{figure}
-\begin{figure}
-  \begin{center}
-    \includegraphics[]{images/conflicts1.png}
-  \end{center}
-  \caption[ตัวอย่างไฟล์คู่วิชาที่มีนักศึกษาลงทะเบียนพร้อมกัน]{ตัวอย่างไฟล์คู่วิชาที่มีนักศึกษาลงทะเบียนพร้อมกัน}
-  \label{fig:conflicts}     
-\end{figure}
-\begin{figure}
-  \begin{center}
-    \includegraphics[]{images/courses1.png}
-  \end{center}
-  \caption[ตัวอย่างไฟล์วิชาที่มีนักศึกษาลงทะเบียน]{ตัวอย่างไฟล์วิชาที่มีนักศึกษาลงทะเบียน}
-  \label{fig:courses}     
-\end{figure}
-\begin{itemize}
-  \item ในโฟลเดอร์ all-exam-course ประกอบไปด้วยไฟล์ <all-exam-course.in> จำนวน 1 ไฟล์ ซึ่งเป็นไฟล์ text ในไฟล์แต่ละบรรทัดประกอบด้วยรหัสวิชาที่มีการจัดสอบ หนึ่งบรรทัดต่อหนึ่งรหัสวิชา ดังภาพที่ \ref{fig:all_courses}
-  \item ในโฟลเดอร์ capacity ประกอบไปด้วยไฟล์ <faculty-capacity.in> จำนวน 1 ไฟล์ ซึ่งเป็นไฟล์ text ในไฟล์แต่ละบรรทัดประกอบไปด้วย รหัสคณะ และจำนวนความจุรวมของห้องสอบของคณะนั้น ๆ แต่ละส่วนคั่นด้วย เว้นวรรค (space) ดังภาพที่ \ref{fig:capacity}
-  \item ในโฟลเดอร์ exam-courses-faculty ประกอบไปด้วยไฟล์ <01.in> ถึง <21.in> ซึ่งเป็นไฟล์ text โดยตั้งชื่อไฟล์ตามรหัสคณะ ในแต่ละไฟล์ประกอบด้วย รหัสวิชาที่มีการจัดสอบ หนึ่งบรรทัดต่อหนึ่งรหัสวิชา ดังภาพที่ \ref{fig:all_courses} 
-  \item ในโฟลเดอร์ regist ประกอบไปด้วยไฟล์ <regist-ปีการศึกษา-เทอม.in> ซึ่งเป็นไฟล์ text ในไฟล์ประกอบไปด้วยข้อมูลลงทะเบียนของนักศึกษาแต่ละคน แต่ละบรรทัดประกอบด้วย รหัสวิชาที่นักศึกษาหนึ่งคนลงทะเบียนในเทอมนั้น ๆ แต่ละวิชาคั่นด้วย เว้นวรรค (space) ดังภาพที่ \ref{fig:regist}
-  \item ในโฟลเดอร์ sched ประกอบไปด้วยไฟล์ <conflicts.in> ดังภาพที่ \ref{fig:conflicts} และ courses.in ดังภาพที่ \ref{fig:courses} ซึ่งเป็นไฟล์ text ในไฟล์ <conflicts.in> ประกอบด้วย รหัสวิชาสองวิชาที่มีนักศึกษาลงทะเบียนพร้อมกันในภาคการศึกษานั้น ๆ และ จำนวนนักศึกษาที่ลงทะเบียนคู่วิชานี้ แต่ละส่วนคั่นด้วย เว้นวรรค (space) ในไฟล์ courses.in ประกอบด้วยรหัสวิชา และจำนวนนักศึกษาที่ลงทะเบียนในวิชานั้น ๆ แต่ละส่วนคั่นด้วย เว้นวรรค (space)
-\end{itemize}
 
 \subsection{รูปแบบของผลลัพธ์จากการจัดตารางสอบ}
 ข้อมูลผลลัพธ์ของโปรแกรมจะเป็นไฟล์ csv ที่ระบุรายวิชาคู่กับ slot ที่สอบของรายวิชานั้น ๆ โดยจะมีข้อมูลใช้สำหรับ mapping หมายเลข slot เป็นวันและเวลาสอบ
@@ -242,9 +143,10 @@
 โดยอัลกอริทึมจะมีลำดับการทำงานตามรูปที่ \ref{fig:flowchart} 
 โดยเมื่อจะรันโปรแกรมจะต้องเลือกอัลกอริทึม 1 รูปแบบจากทั้งหมด 4 รูปแบบ ดังขั้นตอนที่ 1
 และอัลกอริทึมจะมีรูปแบบการทำงานทั้งหมด 4 รูปแบบ โดยแต่ละรูปแบบจะมีความแตกต่างกันที่ลำดับการเลือกโหนดมาเพื่อละบายสี
-โดยแต่ละรูปแบบจะมีการเรียงลำดับ ดังนี้
+โดยแต่ละรูปแบบจะมีการเรียงลำดับ ดังตอนที่ \ref{subsec:sorting_type}
 
 \subsection{รูปแบบของอัลกอลิทึม}
+\label{subsec:sorting_type}
 \begin{enumerate}
   \item รูปแบบที่ 1 BFS-DEG ทำ BFS จากแต่ละโหนดโดยมีการเรียงลำดับความสำคัญของโหนดที่จะจัดช่วงเวลาสอบก่อน โดยเรียงจาก
   ดีกรีของโหนด จำนวนนักศึกษาที่ลงทะเบียน จำนวน conflict ของโหนด และหากทุกอย่างเท่ากันจะเรียงตามรหัสวิชา โดยเรียงจากมากไปน้อยตามลำดับ
