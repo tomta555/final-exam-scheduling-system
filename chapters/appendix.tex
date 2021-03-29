@@ -11,10 +11,6 @@ Text for a section in the first appendix goes here.
 \texttt{test ทดสอบฟอนต์ teletype ภาษาไทย}
 
 \chapter{\ifcpe คู่มือการใช้งานระบบ\else Manual\fi}
-\section{การติดตั้ง python ก่อนการใช้งานโปรแกรม}
-
-วิธีติดตั้ง python และการลง package networkx
-
 \section{โครงสร้างไดเรกทอรีสำหรับข้อมูลนำเข้าของโปรแกรม}
 \label{apd:snd_apd}
 ข้อมูลนำเข้าของโปรแกรมต้องมีการจัดเก็บตามโครงสร้างไดเรกทอรี่และมีการตั้งชื่อไฟล์ดังที่แสดงด้านล่าง
@@ -72,7 +68,7 @@ Text for a section in the first appendix goes here.
 \end{forest}
 \begin{figure}
     \begin{center}
-      \includegraphics[]{images/all-exam1.png}
+      \includegraphics[]{images/all_exam1.png}
     \end{center}
     \caption[ตัวอย่างไฟล์รายวิชาที่มีสอบ]{ตัวอย่างไฟล์รายวิชาที่มีสอบ}
     \label{fig:all_courses}     
@@ -121,11 +117,33 @@ Text for a section in the first appendix goes here.
   \item ในไฟล์ conflicts.in แต่ละบรรทัดประกอบด้วย รหัสวิชาสองวิชาที่มีนักศึกษาลงทะเบียนพร้อมกันในภาคการศึกษานั้น ๆ และ จำนวนนักศึกษาที่ลงทะเบียนคู่วิชานี้ มีรูปแบบดังนี้ <รหัสวิชา> <รหัสวิชา> <จำนวนนักศึกษา> แต่ละส่วนคั่นด้วย เว้นวรรค (space) ตัวอย่างดังภาพที่~\ref{fig:conflicts}
   \item ในไฟล์ enrolled-courses.in แต่ละบรรทัดประกอบด้วย รหัสวิชาและจำนวนนักศึกษาที่ลงทะเบียนในวิชานั้น ๆ มีรูปแบบดังนี้ <รหัสวิชา> <จำนวนนักศึกษา> แต่ละส่วนคั่นด้วย เว้นวรรค (space) ตัวอย่างดังภาพที่~\ref{fig:courses}
   \item ในโฟลเดอร์ data/exam-courses-faculty ประกอบไปด้วยไฟล์ 01.in ถึง 21.in ซึ่งเป็นไฟล์ text โดยตั้งชื่อไฟล์ตามรหัสคณะ ในแต่ละไฟล์ประกอบด้วย รหัสวิชาที่มีการจัดสอบ หนึ่งบรรทัดต่อหนึ่งรหัสวิชา ตัวอย่างดังภาพที่~\ref{fig:all_courses} 
-  \item ในไฟล์ regist.in แต่ละบรรทัดประกอบด้วย ข้อมูลลงทะเบียนของนักศึกษาหนึ่งคน ประกอบด้วยด้วยรหัสวิชาทั้งหมดที่นักศึกษาคนนั้นลงทะเบียน มีรูปแบบดังนี้ <รหัสวิชา> <รหัสวิชา> <รหัสวิชา> ... แต่ละวิชาคั่นด้วย เว้นวรรค (space) ตัวอย่างดังภาพที่~\ref{fig:regist}
+  \item ในไฟล์ regist.in แต่ละบรรทัดประกอบด้วย ข้อมูลลงทะเบียนของนักศึกษาหนึ่งคน ซึ่งประกอบด้วยด้วยรหัสวิชาทั้งหมดที่นักศึกษาคนนั้นลงทะเบียน มีรูปแบบดังนี้ <รหัสวิชา> <รหัสวิชา> <รหัสวิชา> ... แต่ละวิชาคั่นด้วย เว้นวรรค (space) ตัวอย่างดังภาพที่~\ref{fig:regist}
   \item ในไฟล์ regist-studentid.in แต่ละบรรทัดประกอบด้วย ข้อมูลลงทะเบียนของนักศึกษาหนึ่งคน \\ ประกอบด้วยด้วยรหัสนักศึกษาและวิชาทั้งหมดที่นักศึกษาคนนั้นลงทะเบียน มีรูปแบบดังนี้ \\ <รหัสนักศึกษา> <รหัสวิชา> <รหัสวิชา> <รหัสวิชา> ... แต่ละส่วนคั่นด้วย เว้นวรรค (space) \\ ตัวอย่างดังภาพที่~\ref{fig:regist_hashed}
   โดยในตัวอย่างได้มีการ แฮช (hash) รหัสนักศึกษา เพื่อปกป้องข้อมูลส่วนตัวของนักศึกษา
 \end{itemize}
 
+\section{การติดตั้ง python ก่อนการใช้งานโปรแกรม}
+
+\textbf{การติดตั้ง Python}
+\begin{enumerate}
+  \item ไปยัง \url{https://www.python.org/downloads/} เพื่อดาวน์โหลดตัว setup ของ Python
+  \item เมื่อเปิดไฟล์ setup ให้ติ๊กถูกที่ช่อง Add python 3.x to PATH ด้วย จากนั้น install ตามปกติ
+  \item เมื่อติดตั้ง Python เสร็จแล้ว ให้ทดลองตรวจสอบว่า Python นั้นติดตั้งสำเร็จ โดยการเปิด cmd หรือ powershell แล้วใช้คำสั่ง 
+  \begin{verbatim}
+    py --version
+  \end{verbatim}
+  จะแสดง version ของ Python ที่ติดตั้งลงในเครื่อง
+\end{enumerate}
+\newpage
+\textbf{การติดตั้งแพคเกจ networkx}
+\begin{enumerate}
+  \item เมื่อติดตั้ง Python สำเร็จแล้ว ให้เปิด cmd หรือ powershell จากนั้นใช้คำสั่ง
+  \begin{verbatim}
+    pip install networkx
+  \end{verbatim}
+  \item หากมีการยืนยันให้กด y และ enter เพื่อทำการติดตั้งแพคเกจ
+  \item เมื่อติดตั้งแพคเกจเรียบร้อยแล้ว ถือว่าเสร็จสิ้นการเตรียมการ สามารถเรียกใช้งานโปรแกรมจัดตารางสอบได้ทันที
+\end{enumerate}
 
 \section{วิธีการใช้งานโปรแกรม}
 \begin{enumerate}
@@ -136,18 +154,18 @@ Text for a section in the first appendix goes here.
 \end{enumerate}
 ในกรณีที่ต้องการจัดตารางสอบด้วยอัลกอริทึมเพียงวิธีเดียว สามารถเรียกใช้งานโปรแกรมผ่าน console หรือ terminal เช่น cmd หรือ powershell ได้ด้วยคำสั่ง 
 \begin{verbatim}
-    python final_exam_graph_coloring.py [-OPTION]
+    py final_exam_graph_coloring.py [-OPTION]
 \end{verbatim}
 ซึ่ง OPTION มีทั้งหมด 4 OPTION ได้แก่ [-deg, -std, -deg-bfs, -std-bfs]
 
 \begin{verbatim}
     ตัวอย่างการเรียกใช้งานโปรแกรม
-    python final_exam_graph_coloring.py -deg
+    py final_exam_graph_coloring.py -deg
 \end{verbatim}
 
 \noindent ในกรณีที่ต้องการจัดตารางสอบทั้งหมด 4 วิธี สามารถเรียกใช้งานโปรแกรมผ่าน console หรือ terminal เช่น cmd หรือ powershell ได้ด้วยคำสั่ง
 \begin{verbatim}
-    python start_scheduler.py
+    py start_scheduler.py
 \end{verbatim}
 \section{วิธีการใช้งานโปรแกรมคำนวณค่า penalty}
 \begin{enumerate}
@@ -158,17 +176,17 @@ Text for a section in the first appendix goes here.
 \end{enumerate}
 ในกรณีที่ต้องการคิดคำนวณค่า penalty ของตารางสอบเพียง 1 solution สามารถเรียกใช้งานโปรแกรมผ่าน console หรือ terminal เช่น cmd หรือ powershell ได้ด้วยคำสั่ง 
 \begin{verbatim}
-    python penalty_calc.py <solution_file>
+    py penalty_calc.py <solution_file>
 \end{verbatim}
 โดยที่ <solution\_file> คือ path ของไฟล์ solution ตารางสอบที่ได้จากโปรแกรมจัดตารางสอบ
 
 \begin{verbatim}
     ตัวอย่างการเรียกใช้งานโปรแกรมคำนวณค่า penalty
-    python penalty_calc.py solution/graph-coloring-solution-deg.txt
+    py penalty_calc.py solution/graph-coloring-solution-deg.txt
 \end{verbatim}
 
 \noindent ในกรณีที่ต้องการคิดคำนวณค่า penalty ของตารางสอบทั้งหมด 4 วิธี สามารถเรียกใช้งานโปรแกรมคำนวณค่า penalty ผ่าน console หรือ terminal เช่น cmd หรือ powershell ได้ด้วยคำสั่ง
 \begin{verbatim}
-    python start_penalty_report.py
+    py start_penalty_report.py
 \end{verbatim}
 โดยให้เปิดไฟล์ start\_penalty\_report.py เพื่อแก้ไขตัวแปร solution\_folder ให้ชี้ไปยังโฟลเดอร์ที่เก็บ solution ตารางสอบทั้งหมดที่เป็น output ของโปรแกรมจัดตารางสอบให้ถูกต้องก่อนการเรียกใช้งานคำสั่งด้านบน
