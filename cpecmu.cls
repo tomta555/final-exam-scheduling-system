@@ -657,7 +657,6 @@
       \fi
       \@plan@numcols%
     \fi
-    \noindent
   }
   \def\@plan@genheader{%
     &
@@ -684,6 +683,7 @@
   \setcounter{@plan@y}{\value{@plan@sy}}
   \setcounter{@plan@colscount}{0}
   \@plan@numcols
+  \noindent
   \tabularx{\linewidth}{|X|*{\the@plan@colscount}{c|}}
   \hline
   \bf\ifcpe ขั้นตอนการดำเนินงาน\else Task\fi
