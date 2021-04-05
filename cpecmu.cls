@@ -656,7 +656,8 @@
           \setcounter{@plan@m}{1}%
       \fi
       \@plan@numcols%
-  \fi
+    \fi
+    \noindent
   }
   \def\@plan@genheader{%
     &
