@@ -134,7 +134,7 @@
 และเก็บข้อมูลวิชาที่จัดสอบแบบ Regular Exam โดยการส่ง request ผ่าน API เพื่อขอข้อมูลวันและเวลาที่จัดการเรียนการสอนเพื่อนำมาใช้ mapping กับตารางสอบแบบ Regular Exam เพื่อแปลงไปเป็นวันและเวลาสอบปลายภาค
 ซึ่งในระหว่างการเก็บข้อมูลเราได้พบปัญหาที่ทำให้การนำข้อมูลไปใช้งานเลยตรง ๆ ทำได้ยาก โดยมีปัญหาอยู่ 2 ประการ (ก) เป็นปัญหาที่ระบบการเก็บข้อมูลของสำนักทะเบียนและประมวลผล มหาวิทยาลัยเชียงใหม่ 
 ไม่ได้มีการตรวจสอบความถูกต้องของรูปแบบข้อมูล เมื่อมีการแก้ไขข้อมูลวันและเวลาเรียนของแต่ละวิชา ซึ่งอาจเป็นการแก้ไขด้วยการกรอกวันและเวลาเรียนโดยเจ้าหน้าที่ที่เกี่ยวข้อง ซึ่งบางวิชามีการแสดงผลเวลาเรียนผิดพลาดไปจากรูปแบบปกติ
-เช่นในบางวิชาที่มีเวลาเรียนคือ 0930--1100 แต่เวลาที่เขียนกลับเป็น 9030--1100 หรือในบางวิชาเขียนเป็น 9.00-1100 (ข) ในบางวิชาที่เขียนว่าจัดสอบแบบ Regular Exam แต่มีวันและเวลาเรียนไม่ตรงกับรูปแบบใดเลยในตารางสอบแบบ Regular Exam
+เช่นในบางวิชาที่มีเวลาเรียนคือ 0930--1100 แต่เวลาที่เขียนกลับเป็น 9030--1100 หรือในบางวิชาเขียนเป็น 9.30-1100 (ข) ในบางวิชาที่เขียนว่าจัดสอบแบบ Regular Exam แต่มีวันและเวลาเรียนไม่ตรงกับรูปแบบใดเลยในตารางสอบแบบ Regular Exam
 เช่นมีวันที่เรียนเป็นวันเสาร์--อาทิตย์ หรือ มีเวลาเริ่มเรียน 0900 เป็นต้น \TSNAreply{อาจจะแนบรูปวิชาเหล่านั้นได้ถ้าหาเจอ - -}
 
 
@@ -144,7 +144,7 @@
 ซึ่งเราได้ใช้เวลาร่วมเดือนในการเก็บข้อมูลให้ได้ครบทั้ง 20 คณะและวิทยาลัยศิลปะ สื่อ และเทคโนโลยี
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.65\linewidth]{images/request_memo_scan_crop.png}
+    \includegraphics[width=\linewidth]{images/request_memo_scan_crop.png}
   \end{center}
   \caption[ตัวอย่างใบบันทึกข้อความเพื่อขอข้อมูลตารางสอบ]{ตัวอย่างใบบันทึกข้อความเพื่อขอข้อมูลตารางสอบ}
   \label{fig:request-memo-scan}     
@@ -216,13 +216,12 @@
       \end{itemize}        
       \end{minipage}                      
       };
-      \node[process] (proc) [below=0.4cm of prob] {แยกกราฟย่อยออกจากกราฟตาม connected component};
-      \node[connector] (con) [below=0.4cm of proc] {};
-      \node[decision] (desa) [below=0.4cm of con] {visit ครบทุก component?};
-      \node[process] (prod) [below=0.4cm of desa] {visit component ถัดไป};
+      \node[connector] (con) [below=0.4cm of prob] {};
+      \node[decision] (desa) [below=0.4cm of con] {visit ครบทุก node?};
+      \node[process] (prod) [below=0.4cm of desa] {เลือก node ถัดไป};
       \node[process] (proe) [below=0.4cm of prod] {
         \begin{minipage}{4.3in}
-          จัดตารางสอบให้แต่ละ node โดยการเลือก slot สอบตาม penalty model โดยการทดลองทุก slot ที่จัดสอบได้และเลือก slot ที่ทำให้ค่า penalty น้อยที่สุด โดยจะจัด slot สอบให้แต่ละ node เรียงตามรูปแบบของอัลกอริทึมที่เลือก
+          จัดตารางสอบให้ node ปัจจุบัน โดยทดลองทุก slot ที่จัดสอบได้และเลือก slot ที่ทำให้ค่า penalty น้อยที่สุดตาม penalty model 
         \end{minipage} 
       };
       \node[process] (prof) [below=0.2cm of proe] {คิดคำนวณค่า penalty ของตารางสอบ};
@@ -239,12 +238,10 @@
       \draw[arrow] (a) -- (b);
       \draw[arrow] (b) -- (proa);
       \draw[arrow] (proa) -- (prob);
-      \draw[arrow] (prob) -- (proc);
-      \draw[arrow] (proc) -- (con);
+      \draw[arrow] (prob) -- (con);
       \draw[arrow] (con) -- (desa);
-      \draw[arrow] (proc) -- (con);
       \draw[arrow] (desa) -- node[near start,right]{False} (prod);
-      \draw[arrow] (desa.east) -- node[near start,above]{True} +(3.5cm,0) |- (prof);
+      \draw[arrow] (desa.east) -- node[near start,above]{True} +(4cm,0) |- (prof);
       \draw[arrow] (prod) -- (proe);
       \draw[arrow] (proe.west) -- +(-0.5cm,0) |- (con);
       \draw[arrow] (prof) -- (c);
