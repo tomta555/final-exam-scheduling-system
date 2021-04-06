@@ -9,22 +9,17 @@
 ระบบจัดตารางสอบปลายภาคนี้ เป็นโปรแกรมที่นำวิธีการแก้ปัญหาการระบายสีกราฟมาประยุกต์ใช้ในการจัดตารางสอบปลายภาคจากข้อมูลการลงทะเบียนของนักศึกษาหลังจากการลงทะเบียนเสร็จสิ้นแล้ว เพื่อให้ได้ตารางสอบที่มีการกระจายตัวของวิชาที่สอบอย่างมีความสมดุล
 ลดจำนวนนักศึกษาที่ต้องสอบสองวิชาติดกันในหนึ่งวันให้น้อยที่สุด โดยตารางสอบของนักศึกษาคนใด ๆ ต้องไม่มีวิชาที่สอบตรงกัน ช่วยลดช่วงวันเว้นว่างของนักศึกษาในการสอบ 
 และยังช่วยให้นักศึกษาสามารถเลือกลงทะเบียนวิชาเรียนที่สนใจได้อย่างอิสระโดยไม่ต้องกังวลว่าวิชาเหล่านั้นจะถูกจัดให้สอบในช่วงเวลาเดียวกัน
-โดยในโครงงานนี้ได้มีการออกแบบอัลกอริทึมขึ้นมาทั้งหมด 4 รูปแบบ โดยแต่ละรูปแบบจะแตกต่างกันที่ลำดับการเลือกโหนดมาเพื่อระบายสี โดยอัลกอริทึมแต่ละรูปแบบจะใช้เวลาเฉลี่ยประมาณ 90 วินาที ในการประมวลผลตารางสอบสำหรับหนึ่งภาคการศึกษา
-อีกทั้งในโครงงานนี้ยังได้มีการทำแบบสอบถามเพื่อเปรียบเทียบตารางสอบปลายภาคที่เป็นผลลัพธ์จากระบบกับตารางสอบปลายภาคที่กำหนดโดยสำนักทะเบียนและประมวลผล มหาวิทยาลัยเชียงใหม่ 
-\\ โดยให้นักศึกษาได้เข้ามามีส่วนร่วมในการเลือกตารางสอบปลายภาคของตนเองที่ตนเองชื่นชอบมากกว่า ในปีการศึกษา 2561--2563 เป็นจำนวนทั้งหมด 6 ภาคการศึกษา 
-ซึ่งนักศึกษามากกว่าร้อยละ 60 ที่ตอบแบบสอบถาม ชื่นชอบตารางสอบปลายภาคจากระบบมากกว่าตารางสอบที่กำหนดโดยสำนักทะเบียนและประมวลผล มหาวิทยาลัยเชียงใหม่ 
+โครงงานนี้ได้มีการออกแบบอัลกอริทึมขึ้นมาทั้งหมด 4 รูปแบบ ซึ่งแตกต่างกันที่ลำดับของวิชาที่ถูกเลือกมาจัดช่วงเวลาสอบ อัลกอริทึมแต่ละรูปแบบจะใช้เวลาเฉลี่ยประมาณ 90 วินาที ในการประมวลผลตารางสอบสำหรับหนึ่งภาคการศึกษา
+จากผลสำรวจ มากกว่าร้อยละ 60 ของนักศึกษาปัจจุบันระบุว่าชื่นชอบตารางสอบปลายภาคที่เป็นผลลัพธ์จากระบบ มากกว่าตารางสอบปลายภาคที่กำหนดโดยสำนักทะเบียนและประมวลผล มหาวิทยาลัยเชียงใหม่ 
 \end{abstractTH}
 
 \begin{abstract}
 The main goal of scheduling final exams is to have every student take an exam for every course they registered for that semester to assess their knowledge and learning ability.
-Without careful planning, the final exam schedule for a particular student might require that the student take two or three final exams consecutively or create a gap too long between two exams make an imbalance that affects the stress level of the student.
-"Final exam scheduling system" is a program that applies a graph-coloring algorithm to solve the final exam scheduling problem. The system uses data from student registration to create a balanced final exam schedule. The goal of this system is to reduce the number of students who need to take exams consecutively,
-to reduce the gap between each exam, and—importantly—to enable students to enroll in any course they want to without worrying about the final exam schedule. The final exam schedule for every student produced from this system must not have overlapping courses.
-In this study, we have designed four types of algorithms in which each type differs in the order of nodes to coloring.
-All variety of algorithms take approximately 90 seconds to produce an exam schedule for one semester.
-Moreover, we have the students take part in system assessment by taking questionnaires, having students pick their exam schedule they like the most between exam schedule from the system and exam schedule from the registration office in each semester between 2018--2020.
-The result is that more than 60 percent of students choose exam schedules from the system over exam schedules from the registration office. 
-\CIreply{CI TODO: check after rewriting Thai abstract}
+Without careful planning, the final exam schedule for a particular student might require that the student take two or three final exams consecutively, or create a gap too long between two exams, posing an imbalance that affects the stress level of the student.
+The "final exam scheduling system" is a program that applies a graph-coloring algorithm to solve the final exam scheduling problem. The system uses data from student registration to create a balanced final exam schedule. The goal of this system is to reduce the number of students who need to take exams consecutively,
+to reduce the gap between each exam, and—importantly—to enable students to enroll in any course they want to without worrying about the final exam schedule. The final exam schedule produced from this system does not have overlapping exams for any student.
+In this study, we have designed four types of algorithms, each of which differs in the order of courses to be assigned an exam slot.  Each of these algorithms takes approximately 90 seconds to produce an exam schedule for one semester.
+The evaluation of our produced exam schedule shows that more than 60 percent of current students prefer our schedule to the existing exam schedule designated by the Registration Office, Chiang Mai University.
 \end{abstract}
 
 \iffalse
@@ -36,15 +31,16 @@ Dedication page is optional.
 \fi % \iffalse
 
 \begin{acknowledgments}
-โครงงานนี้ได้รับความกรุณาจาก อ.ดร.ชินวัตร อิศราดิสัยกุล อาจารย์ที่ปรึกษา ที่ได้สละเวลาให้ความช่วยเหลือทั้งให้คำแนะนำ ให้ความรู้และแนวคิดต่าง ๆ รวมถึง อ.ดร.พฤษภ์ บุญมา และ รศ.ดร.สรรพวรรธน์ กันตะบุตร ที่ให้คำปรึกษาจนทำให้โครงงานเล่มนี้เสร็จสมบูรณ์ไปได้
+โครงงานนี้ได้รับความกรุณาจาก อ.ดร.ชินวัตร อิศราดิสัยกุล อาจารย์ที่ปรึกษา ที่ได้สละเวลาให้ความช่วยเหลือทั้งให้คำแนะนำ ให้ความรู้และแนวคิดต่าง ๆ รวมถึง อ.ดร.พฤษภ์ บุญมา และ รศ.ดร.สรรพวรรธน์ กัน\-ตะบุตร ที่ให้คำปรึกษาจนทำให้โครงงานเล่มนี้เสร็จสมบูรณ์ไปได้
     
-ขอขอบคุณงานบริการการศึกษาและพัฒนาคุณภาพนักศึกษา คณะต่าง ๆ ใน มหาวิทยาลัยเชียงใหม่ ที่ได้ให้ความร่วมมือเป็นอย่างดีในการให้ข้อมูลอันเป็นประโยชน์ต่อการพัฒนาโครงงานนี้
+ขอขอบคุณงานบริการการศึกษาและพัฒนาคุณภาพนักศึกษา คณะต่าง ๆ ในมหาวิทยาลัยเชียงใหม่ ที่ได้ให้ความร่วมมือเป็นอย่างดีในการให้ข้อมูลอันเป็นประโยชน์ต่อการพัฒนาโครงงานนี้
 
 ขอขอบคุณเพื่อน ๆ ที่ช่วยให้ข้อมูลอันเป็นประโยชน์ต่อการทำโครงงาน และช่วยให้กำลังใจ รวมถึงคำแนะนำที่ดีตลอดการทำโครงงานที่ผ่านมา
 
 ขอขอบคุณนักศึกษาทุกคนที่ช่วยให้ความร่วมมือในการตอบแบบสอบถาม ช่วยแสดงความคิดเห็นพร้อมทั้งข้อเสนอแนะเกี่ยวกับช่วงเวลาที่ต้องการจะสอบ ซึ่งเป็นข้อมูลที่สำคัญที่ใช่ในการออกแบบและพัฒนาโครงงานให้สำเร็จลุล่วง
 
 ขอขอบคุณร้านอาหารต่าง ๆ ที่ให้สถานที่ในการประชุมแต่ละครั้ง พร้อมทั้งยังทำให้อิ่มท้องทำให้สามารถใช้ความคิดได้ดีมากยิ่งขึ้น
+\CIreply{ชอบ}
 
 นอกจากนี้ผู้จัดทำขอขอบพระคุณ บิดา มารดา และครอบครัวที่ได้คอยให้คำแนะนำและ ให้กำลังใจ ตลอดมา รวมทั้งขอขอบพระคุณอีกหลาย ๆ ท่านที่ไม่ได้เอ่ยนามมา ณ ที่นี้ ที่ได้ให้ความช่วยเหลือจนทำให้โครงงานนี้สำเร็จลงได้ 
 

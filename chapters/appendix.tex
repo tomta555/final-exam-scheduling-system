@@ -3,6 +3,7 @@
 ในมหาวิทยาลัยเชียงใหม่ มีการแบ่งคณะต่าง ๆ ที่เปิดสอนหลักสูตรปริญญาตรี ดังตารางที่ \ref{tab:faculty_code}
 
 \begin{table}[h]
+\setstretch{1.35}
   \centering
   \begin{tabular}{@{}cl@{}}
   \toprule
@@ -29,17 +30,21 @@
   20      & คณะนิติศาสตร์                  \\
   21      & วิทยาลัยศิลปะ สื่อและเทคโนโลยี
   \end{tabular}
-  \caption{ตารางแสดงรหัสคณะและรายชื่อคณะภายในมหาวิทยาลัยเชียงใหม่ \cite{cmu-faculties}}
+  \caption[ตารางแสดงรหัสคณะและรายชื่อคณะภายในมหาวิทยาลัยเชียงใหม่]{ตารางแสดงรหัสคณะและรายชื่อคณะภายในมหาวิทยาลัยเชียงใหม่ \cite{cmu-faculties}}
   \label{tab:faculty_code}
 \end{table}
 
 \section{ข้อมูลจากการสำรวจตารางสอบแต่ละคณะ}
-ข้อมูลอื่น ๆ ที่เกี่ยวข้องทั้งที่ได้ใช้งานและไม่ได้ใช้งาน ได้เก็บรวบรวมไว้ ที่ \url{https://github.com/tomta555/final-exam-sched/tree/main/project_resources}
-\\ โดยในโฟลเดอร์ \str{project\_resources} จะมีโฟลเดอร์ย่อยต่าง ๆ ดังนี้ 
+ข้อมูลอื่น ๆ ที่เกี่ยวข้อง ทั้งที่ได้ใช้งานและไม่ได้ใช้งาน ได้เก็บรวบรวมไว้ที่
+\begin{quote}
+\small
+\url{https://github.com/tomta555/final-exam-sched/tree/main/project_resources}
+\end{quote}
+โดยในโฟลเดอร์ \str{project\_resources} จะมีโฟลเดอร์ย่อยต่าง ๆ ดังนี้ 
 \begin{itemize}
   \item \str{courses\_conflicts} เก็บไฟล์รายวิชาทั้งหมด และไฟล์คู่รายวิชาที่มีนักศึกษาลงทะเบียนพร้อมกัน ในแต่ละภาคการศึกษา
   \item \str{faculty\_capacity} เก็บไฟล์ความจุห้องสอบแต่ละห้องของแต่ละคณะและอาคารเรียนรวม ที่ใช้จัดสอบในช่วงปกติและช่วงโควิด
-  \item \str{questionnaires\_result} เก็บไฟล์สรุปรวมผลการสอบถามความคิดเห็นของนักศึกษาเพื่อประเมินระบบ
+  \item \str{questionnaires\_result} เก็บไฟล์สรุปรวมผลการสำรวจความคิดเห็นของนักศึกษาเพื่อประเมินระบบ
   \item \str{faculty\_exam\_courses} เก็บไฟล์ข้อมูลดิบที่เป็นตารางสอบ 3 ปีย้อนหลัง ของแต่ละคณะ
   \item \str{regist} เก็บไฟล์ข้อมูลรายวิชาที่นักศึกษาแต่ละคนลงทะเบียนในแต่ละภาคการศึกษา
   \item \str{registration\_exam\_table} เก็บไฟล์ตารางสอบของสำนักทะเบียนฯ ในแต่ละภาคการศึกษา
@@ -48,9 +53,10 @@
   \item \str{time\_TBA\_courses} เก็บไฟล์ที่บอกรายวิชาที่ไม่ระบุวันหรือเวลาเรียนที่เก็บข้อมูลได้จากเว็บสำนักทะเบียนฯ
 \end{itemize}
 
-\noindent ข้อมูลจำนวนความจุห้องสอบรวมแยกตามคณะและอาคารเรียนรวม แสดงดังตารางที่ \ref{tab:faculty_capa} \\ เก็บข้อมูลล่าสุดเมื่อวันที่ 29 มกราคม 2564
+\noindent ข้อมูลจำนวนความจุห้องสอบรวม แยกตามคณะและอาคารเรียนรวม (ข้อมูลล่าสุด ณ วันที่ 29 มกราคม 2564) แสดงดังตารางที่ \ref{tab:faculty_capa}
 
 \begin{table}[h]
+  \setstretch{1.35}
   \centering
   \begin{tabular}{@{}lc@{}}
   \toprule
@@ -182,8 +188,6 @@
 \end{figure}
 
 
-\CIreply{รบกวนใส่ \texttt{str} commands ให้แต่ละชื่อด้วยครับ}
-\CIreply{ภาพ vs รูป}
 \begin{itemize}
   \item ในโฟลเดอร์ \str{data} ประกอบไปด้วยไฟล์ \str{all-exam-course.in}, \str{faculty-capacity.in},
   \\ \str{conflicts.in}, \str{enrolled-courses.in}, \str{regist.in}, \str{regist-studentid.in} รวมทั้งหมดจำนวน 6 ไฟล์ แต่ละไฟล์ เป็นไฟล์ text 

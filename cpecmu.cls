@@ -684,7 +684,7 @@
   \setcounter{@plan@colscount}{0}
   \@plan@numcols
   \noindent
-  \tabularx{\linewidth}{|X|*{\the@plan@colscount}{c|}}
+  \tabularx{\linewidth}{|>{\raggedright}X|*{\the@plan@colscount}{c|}}
   \hline
   \bf\ifcpe ขั้นตอนการดำเนินงาน\else Task\fi
   \setcounter{@plan@m}{\value{@plan@sm}}
